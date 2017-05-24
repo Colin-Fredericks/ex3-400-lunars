@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="Ex3_400_Lunars.css" />
 <script>
 all_lunars = [
+{"totem": "Addax", "name": "Rising Spiral", "role": "Explorer", "direction": "south"},
 {"totem": "Austrech", "name": "Golden Victory", "role": "Poet", "direction": "south"},
 {"totem": "Baboon", "name": "Shekilato", "role": "Demon-hunter", "direction": "south"},
 {"totem": "Bushbaby", "name": "Night-seer", "role": "Brawler", "direction": "south"},
@@ -411,11 +412,53 @@ all_lunars = [
 {"totem": "Yeddim", "name": "Sky Rains Silver", "role": "Healer", "direction": "center"}
 ]
 
+function formatRow(row){
+    return "<tr class='deleteable'><td>" + row.name + "</td><td>" + row.totem + "</td><td>" + row.role + "</td></tr>"
+}
+
+function getRows(number, direction){
+    var lunarsInDirection = [];
+    var myLunars = [];
+    
+    for(lunar in all_lunars){
+        if(direction == 'creation'){
+            lunarsInDirection.push(lunar); 
+        }else{
+            if(direction == 'east' && lunar.direction == 'east'){ lunarsInDirection.push(lunar); }
+            if(direction == 'west' && lunar.direction == 'west'){ lunarsInDirection.push(lunar); }
+            if(direction == 'north' && lunar.direction == 'north'){ lunarsInDirection.push(lunar); }
+            if(direction == 'south' && lunar.direction == 'south'){ lunarsInDirection.push(lunar); }
+            if(direction == 'center' && lunar.direction == 'center'){ lunarsInDirection.push(lunar); }
+        }
+    }
+    
+    for(var i=0; i<number; i++){
+        
+    }
+    return formatRow(all_lunars[0]);
+}
+
 function updateLunars(){
-    var testbox = document.getElementById("testing");
-    var number = document.getElementById("number").value;
+    
+    var numberText = document.getElementById("number").value;
     var direction = document.getElementById("direction").value;
-    testbox.innerHTML = number + " " + direction;
+
+    var testbox = document.getElementById("testing");
+    testbox.innerHTML = numberText + " " + direction;
+    
+    if(numberText == "one"){ var number = 1; }
+    if(numberText == "all"){ var number = 400; }
+    if(numberText == "circle"){ var number = 5; }
+    if(numberText == "moot"){ var number = 30; }
+    
+    if(direction != "creation"){ number = min(number, 80); }
+    
+    // Remove all existing lunars before adding new ones
+    var deleteable = document.getElementsByClassName("deleteable")[0];
+    deleteable.parentNode.removeChild(deleteable);
+    
+    // Add all the new ones
+    document.getElementById("lunartable").insertAdjacentHTML('beforeend', getRows(number, direction));
 }
 
 </script>
@@ -451,9 +494,14 @@ function updateLunars(){
 
 <table id="lunartable">
     <tr id="headers">
-        <th>Name</th>
-        <th>Totem</th>
-        <th>Role</th>
+        <th id="nameheader">Name</th>
+        <th id="totemheader">Totem</th>
+        <th id="roleheader">Role</th>
+    </tr>
+    <tr class="deleteable">
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
     </tr>
 </table>
 
