@@ -413,14 +413,17 @@ all_lunars = [
 ]
 
 function formatRow(row){
+    console.log(row['name']);
     return "<tr class='deleteable'><td>" + row.name + "</td><td>" + row.totem + "</td><td>" + row.role + "</td></tr>"
 }
 
 function getRows(number, direction){
     var lunarsInDirection = [];
     var myLunars = [];
+    var newLunarHTML = "";
     
-    for(lunar in all_lunars){
+    for(var i=0; i < all_lunars.length; i++){
+        var lunar = all_lunars[i];
         if(direction == 'creation'){
             lunarsInDirection.push(lunar); 
         }else{
@@ -432,16 +435,30 @@ function getRows(number, direction){
         }
     }
     
+    console.log(lunarsInDirection);
+    
     for(var i=0; i<number; i++){
-        
+        var thisLunar = Math.floor((Math.random() * lunarsInDirection.length) + 1);
+        myLunars.push(lunarsInDirection[thisLunar]);
+        lunarsInDirection.splice(thisLunar);
     }
-    return formatRow(all_lunars[0]);
+    
+    console.log(myLunars);
+
+    for(var i=0; i<myLunars.length; i++){
+        newLunarHTML += formatRow(myLunars[i]);
+    }
+    
+    console.log(newLunarHTML);
+
+    return newLunarHTML;
 }
 
 function updateLunars(){
     
     var numberText = document.getElementById("number").value;
     var direction = document.getElementById("direction").value;
+    var newLunarHTML = "";
 
     var testbox = document.getElementById("testing");
     testbox.innerHTML = numberText + " " + direction;
@@ -451,14 +468,18 @@ function updateLunars(){
     if(numberText == "circle"){ var number = 5; }
     if(numberText == "moot"){ var number = 30; }
     
-    if(direction != "creation"){ number = min(number, 80); }
+    if(direction != "creation"){ number = Math.min(number, 80); }
     
     // Remove all existing lunars before adding new ones
-    var deleteable = document.getElementsByClassName("deleteable")[0];
-    deleteable.parentNode.removeChild(deleteable);
+    var deleteable = document.getElementsByClassName("deleteable");
+    console.log('deletion count: ' + deleteable.length);
+    for(var i=0; i<deleteable.length; i++){
+        deleteable[i].parentNode.removeChild(deleteable[i]);
+    }
     
     // Add all the new ones
-    document.getElementById("lunartable").insertAdjacentHTML('beforeend', getRows(number, direction));
+    newLunarHTML = getRows(number, direction);
+    document.getElementById("obligatory").insertAdjacentHTML('beforeend', newLunarHTML);
 }
 
 </script>
@@ -486,6 +507,8 @@ function updateLunars(){
     <option value="west">The West</option>
     <option value="center">The Center</option>
 </select>
+
+<button onclick="updateLunars()">Go</button>
 </div>
 
 <p id="testing">&nbsp;</p>
@@ -493,6 +516,7 @@ function updateLunars(){
 <div id="results">
 
 <table id="lunartable">
+  <tbody id="obligatory">
     <tr id="headers">
         <th id="nameheader">Name</th>
         <th id="totemheader">Totem</th>
@@ -503,6 +527,7 @@ function updateLunars(){
         <th>&nbsp;</th>
         <th>&nbsp;</th>
     </tr>
+  </tbody>
 </table>
 
 </div>

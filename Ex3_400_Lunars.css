@@ -50,3 +50,16 @@ h1 {
     font-weight: bold;
 }
 
+th {
+    text-align: left;
+}
+
+#nameheader {
+    min-width: 12em;
+}
+#totemheader {
+    min-width: 12em;
+}
+#roleheader {
+    min-width: 12em;
+}
