@@ -412,13 +412,10 @@ all_lunars = [
 {"totem": "Yeddim", "name": "Sky Rains Silver", "role": "Healer", "direction": "center"}
 ]
 
-oddRow = false;
-
-function formatRow(row){
-    oddrow = !oddrow;
-    if(oddrow){
+function formatRow(row, rownumber){
+    if(rownumber % 2 == 1){
         return "<tr class='deleteable'><td>" + row.name + "</td><td>" + row.totem + "</td><td>" + row.role + "</td></tr>"
-    else{
+    }else{
         return "<tr class='deleteable everyother'><td>" + row.name + "</td><td>" + row.totem + "</td><td>" + row.role + "</td></tr>"
     }
 }
@@ -453,7 +450,7 @@ function getRows(number, direction){
     }
     
     for(var i=0; i<myLunars.length; i++){
-        newLunarHTML += formatRow(myLunars[i]);
+        newLunarHTML += formatRow(myLunars[i], i);
     }
     
     return newLunarHTML;

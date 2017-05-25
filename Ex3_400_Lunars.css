@@ -55,16 +55,16 @@ th {
 }
 
 #nameheader {
-    min-width: 12em;
+    min-width: 16em;
 }
 #totemheader {
-    min-width: 12em;
+    min-width: 14em;
 }
 #roleheader {
-    min-width: 12em;
+    min-width: 11em;
 }
 
 
 .everyother {
-    background-color: #abc;
+    background-color: #ddeeff;
 }
