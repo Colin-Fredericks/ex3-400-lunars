@@ -413,7 +413,6 @@ all_lunars = [
 ]
 
 function formatRow(row){
-    console.log(row['name']);
     return "<tr class='deleteable'><td>" + row.name + "</td><td>" + row.totem + "</td><td>" + row.role + "</td></tr>"
 }
 
@@ -421,6 +420,7 @@ function getRows(number, direction){
     var lunarsInDirection = [];
     var myLunars = [];
     var newLunarHTML = "";
+    var thisLunar = 0;
     
     for(var i=0; i < all_lunars.length; i++){
         var lunar = all_lunars[i];
@@ -435,22 +435,20 @@ function getRows(number, direction){
         }
     }
     
-    console.log(lunarsInDirection);
-    
-    for(var i=0; i<number; i++){
-        var thisLunar = Math.floor((Math.random() * lunarsInDirection.length) + 1);
-        myLunars.push(lunarsInDirection[thisLunar]);
-        lunarsInDirection.splice(thisLunar);
+    if(direction == 'creation' && number == 400){
+        myLunars = lunarsInDirection;
+    }else{
+        for(var i=0; i<number; i++){
+            thisLunar = Math.floor((Math.random() * lunarsInDirection.length) );
+            myLunars.push(lunarsInDirection[thisLunar]);
+            lunarsInDirection.splice(thisLunar, 1);
+        }
     }
     
-    console.log(myLunars);
-
     for(var i=0; i<myLunars.length; i++){
         newLunarHTML += formatRow(myLunars[i]);
     }
     
-    console.log(newLunarHTML);
-
     return newLunarHTML;
 }
 
@@ -459,10 +457,8 @@ function updateLunars(){
     var numberText = document.getElementById("number").value;
     var direction = document.getElementById("direction").value;
     var newLunarHTML = "";
+    var rows_to_delete = 0;
 
-    var testbox = document.getElementById("testing");
-    testbox.innerHTML = numberText + " " + direction;
-    
     if(numberText == "one"){ var number = 1; }
     if(numberText == "all"){ var number = 400; }
     if(numberText == "circle"){ var number = 5; }
@@ -472,9 +468,11 @@ function updateLunars(){
     
     // Remove all existing lunars before adding new ones
     var deleteable = document.getElementsByClassName("deleteable");
+    rows_to_delete = deleteable.length
     console.log('deletion count: ' + deleteable.length);
-    for(var i=0; i<deleteable.length; i++){
-        deleteable[i].parentNode.removeChild(deleteable[i]);
+    
+    for(var i=0; i<rows_to_delete; i++){
+        deleteable[0].parentNode.removeChild(deleteable[0]);
     }
     
     // Add all the new ones
