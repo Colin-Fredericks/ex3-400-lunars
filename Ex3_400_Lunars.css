@@ -63,3 +63,8 @@ th {
 #roleheader {
     min-width: 12em;
 }
+
+
+.everyother {
+    background-color: #abc;
+}
