@@ -68,3 +68,12 @@ th {
 .everyother {
     background-color: #ddeeff;
 }
+
+#colinlinks {
+    padding: 6px;
+}
+
+#colinlinks p {
+    margin: 0px;
+    font-size: small;
+}
