@@ -1,534 +1,2501 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>400 Lunars</title>
-<link rel="stylesheet" type="text/css" href="Ex3_400_Lunars.css" />
-<script>
-all_lunars = [
-{"totem": "Addax", "name": "Rising Spiral", "role": "Explorer", "direction": "south"},
-{"totem": "Austrech", "name": "Golden Victory", "role": "Poet", "direction": "south"},
-{"totem": "Baboon", "name": "Shekilato", "role": "Demon-hunter", "direction": "south"},
-{"totem": "Bushbaby", "name": "Night-seer", "role": "Brawler", "direction": "south"},
-{"totem": "Caiman", "name": "Athelankara", "role": "Philosopher", "direction": "south"},
-{"totem": "Camel", "name": "Three Humps", "role": "Smuggler", "direction": "south"},
-{"totem": "Camel Spider", "name": "Sandface", "role": "Assassin", "direction": "south"},
-{"totem": "Cane Toad", "name": "Urudun", "role": "Thief", "direction": "south"},
-{"totem": "Caracal", "name": "Listens Long", "role": "Architect", "direction": "south"},
-{"totem": "Chameleon", "name": "Fedasha", "role": "Musician", "direction": "south"},
-{"totem": "Cheetah", "name": "Duma", "role": "Messenger", "direction": "south"},
-{"totem": "Chimpanzee", "name": "Arrow Mind", "role": "Horse-Archer", "direction": "south"},
-{"totem": "Chuckwalla", "name": "Ekhava the Weighty", "role": "Merchant", "direction": "south"},
-{"totem": "Claw Strider", "name": "Ifitasha", "role": "Lawman", "direction": "south"},
-{"totem": "Cobra", "name": "Kharsatva", "role": "Potionmaker", "direction": "south"},
-{"totem": "Crocodile", "name": "Vesh", "role": "Bodyguard", "direction": "south"},
-{"totem": "Dik Dik", "name": "Ten Hops", "role": "Chef", "direction": "south"},
-{"totem": "Elephant", "name": "Uyulaya", "role": "Farmer", "direction": "south"},
-{"totem": "Emu", "name": "The Eviscerator", "role": "Assassin", "direction": "south"},
-{"totem": "Fennec Fox", "name": "Swift Rain", "role": "Dancer", "direction": "south"},
-{"totem": "Fire Ant", "name": "Defshatha", "role": "Healer", "direction": "south"},
-{"totem": "Flamingo", "name": "Qinakhata", "role": "Athlete", "direction": "south"},
-{"totem": "Flea", "name": "One Hop", "role": "Drunken Master", "direction": "south"},
-{"totem": "Garuda", "name": "Carries The World", "role": "Warleader", "direction": "south"},
-{"totem": "Gecko", "name": "Silavathentona", "role": "Food-taster", "direction": "south"},
-{"totem": "Giant Arapaima", "name": "Klatang 'Emashi", "role": "Healer", "direction": "south"},
-{"totem": "Gila Monster", "name": "Multaniko", "role": "Infiltrator", "direction": "south"},
-{"totem": "Giraffe", "name": "Inathetha", "role": "Warleader", "direction": "south"},
-{"totem": "Golden Eagle", "name": "Ramberanda", "role": "Archer", "direction": "south"},
-{"totem": "Hare", "name": "Longfoot", "role": "Hunter", "direction": "south"},
-{"totem": "Hippo ", "name": "Uwudak'a", "role": "Chimera", "direction": "south"},
-{"totem": "Hyena", "name": "Nine Days Dead", "role": "Butcher", "direction": "south"},
-{"totem": "Ibis", "name": "Flora Softwing", "role": "Scout", "direction": "south"},
-{"totem": "Jackal", "name": "Sathea", "role": "Librarian", "direction": "south"},
-{"totem": "Jackalope", "name": "Elkhathedran", "role": "Geomancer", "direction": "south"},
-{"totem": "Jerboa", "name": "Serai Longtoes", "role": "Traveler", "direction": "south"},
-{"totem": "Kangaroo", "name": "Alratha", "role": "Boxer", "direction": "south"},
-{"totem": "Komodo Dragon", "name": "S'serrak", "role": "Drug merchant", "direction": "south"},
-{"totem": "Kookaburra", "name": "Song of Freedom", "role": "Rabble-rouser", "direction": "south"},
-{"totem": "Lungfish", "name": "Wethashent", "role": "Captain", "direction": "south"},
-{"totem": "Maned Wolf", "name": "Phantelsandet", "role": "Sensei", "direction": "south"},
-{"totem": "Meerkat", "name": "Quickeye", "role": "Actor", "direction": "south"},
-{"totem": "Minnow", "name": "Hathi", "role": "Architect", "direction": "south"},
-{"totem": "Peacock", "name": "Brilliant Cloak", "role": "Socialite", "direction": "south"},
-{"totem": "Mongoose", "name": "Intifesheda", "role": "Socialte", "direction": "south"},
-{"totem": "Monitor Lizard", "name": "Belthemat", "role": "Inquisitor", "direction": "south"},
-{"totem": "Mountain Lion", "name": "Endefado", "role": "Orator", "direction": "south"},
-{"totem": "Hornbill", "name": "Thetta Bignose", "role": "Blacksmith", "direction": "south"},
-{"totem": "Okapi", "name": "Idashavo", "role": "Messenger", "direction": "south"},
-{"totem": "Painted Dog", "name": "Hrotemash", "role": "Navigator", "direction": "south"},
-{"totem": "Paper Wasp", "name": "Kotala Fesho", "role": "Infiltrator", "direction": "south"},
-{"totem": "Peccary", "name": "Bristlebeard", "role": "Teacher", "direction": "south"},
-{"totem": "Pink Fairy Armadillo", "name": "Lives Beyond", "role": "Wyld Sage", "direction": "south"},
-{"totem": "Raiton", "name": "Eshavthea", "role": "Plaguebringer", "direction": "south"},
-{"totem": "Raven", "name": "Itimefal", "role": "Mastermind", "direction": "south"},
-{"totem": "Red Lesser Panda", "name": "Cereat", "role": "Bureaucrat", "direction": "south"},
-{"totem": "Red River Hog", "name": "Antefa", "role": "Surgeon", "direction": "south"},
-{"totem": "Rhinocerous", "name": "Khanat Roughskin", "role": "Lieutenant", "direction": "south"},
-{"totem": "Roadrunner", "name": "Cliffdodger", "role": "Traveler", "direction": "south"},
-{"totem": "Scarab", "name": "Seshmila", "role": "Historian", "direction": "south"},
-{"totem": "Scorpion", "name": "Scares the Dead", "role": "Exorcist", "direction": "south"},
-{"totem": "Secretary Bird", "name": "Delatha", "role": "Nobleman", "direction": "south"},
-{"totem": "Shoebill", "name": "Eletat", "role": "Silversmith", "direction": "south"},
-{"totem": "Sidewinder", "name": "Ushemara", "role": "Martial Artist", "direction": "south"},
-{"totem": "Siege Lizard", "name": "Big Shuto", "role": "Swordsman", "direction": "south"},
-{"totem": "Skink", "name": "Renattheno", "role": "Spy", "direction": "south"},
-{"totem": "Stork", "name": "Joybringer", "role": "Manse Repair", "direction": "south"},
-{"totem": "Sugar Glider", "name": "Djubi", "role": "Healer", "direction": "south"},
-{"totem": "Tamarin", "name": "Alateth", "role": "Priest", "direction": "south"},
-{"totem": "Termite", "name": "Homewrecker", "role": "Demolitions", "direction": "south"},
-{"totem": "Thorny Devil", "name": "Yuto the Clever", "role": "Archaeologist", "direction": "south"},
-{"totem": "Vulture", "name": "Seven Mile Circle", "role": "Inspector", "direction": "south"},
-{"totem": "Wallaby", "name": "Ifashena", "role": "Functionary", "direction": "south"},
-{"totem": "Warthog", "name": "Yufathet", "role": "Berserker", "direction": "south"},
-{"totem": "Water Buffalo", "name": "Wuoshentheo", "role": "Soldier", "direction": "south"},
-{"totem": "Wildebeest", "name": "Chendith", "role": "Spearmaiden", "direction": "south"},
-{"totem": "Wombat", "name": "Ul'Bethan Shelam", "role": "Herbalist", "direction": "south"},
-{"totem": "Wyvern", "name": "Hantitath", "role": "Assassin", "direction": "south"},
-{"totem": "Yali", "name": "Mind-ender", "role": "Hypnotist", "direction": "south"},
-{"totem": "Zebra", "name": "One Among Many", "role": "Pickpocket", "direction": "south"},
+  <meta charset="UTF-8" />
+  <title>400 Lunars</title>
+  <link rel="stylesheet" type="text/css" href="Ex3_400_Lunars.css" />
+  <script>
+    let all_lunars = [
+      {
+        totem: "Addax",
+        name: "Rising Spiral",
+        role: "Explorer",
+        direction: "south",
+      },
+      {
+        totem: "Austrech",
+        name: "Golden Victory",
+        role: "Poet",
+        direction: "south",
+      },
+      {
+        totem: "Baboon",
+        name: "Shekilato",
+        role: "Demon-hunter",
+        direction: "south",
+      },
+      {
+        totem: "Bushbaby",
+        name: "Night-seer",
+        role: "Brawler",
+        direction: "south",
+      },
+      {
+        totem: "Caiman",
+        name: "Athelankara",
+        role: "Philosopher",
+        direction: "south",
+      },
+      {
+        totem: "Camel",
+        name: "Three Humps",
+        role: "Smuggler",
+        direction: "south",
+      },
+      {
+        totem: "Camel Spider",
+        name: "Sandface",
+        role: "Assassin",
+        direction: "south",
+      },
+      {
+        totem: "Cane Toad",
+        name: "Urudun",
+        role: "Thief",
+        direction: "south",
+      },
+      {
+        totem: "Caracal",
+        name: "Listens Long",
+        role: "Architect",
+        direction: "south",
+      },
+      {
+        totem: "Chameleon",
+        name: "Fedasha",
+        role: "Musician",
+        direction: "south",
+      },
+      {
+        totem: "Cheetah",
+        name: "Duma",
+        role: "Messenger",
+        direction: "south",
+      },
+      {
+        totem: "Chimpanzee",
+        name: "Arrow Mind",
+        role: "Horse-Archer",
+        direction: "south",
+      },
+      {
+        totem: "Chuckwalla",
+        name: "Ekhava the Weighty",
+        role: "Merchant",
+        direction: "south",
+      },
+      {
+        totem: "Claw Strider",
+        name: "Ifitasha",
+        role: "Lawman",
+        direction: "south",
+      },
+      {
+        totem: "Cobra",
+        name: "Kharsatva",
+        role: "Potionmaker",
+        direction: "south",
+      },
+      {
+        totem: "Crocodile",
+        name: "Vesh",
+        role: "Bodyguard",
+        direction: "south",
+      },
+      {
+        totem: "Dik Dik",
+        name: "Ten Hops",
+        role: "Chef",
+        direction: "south",
+      },
+      {
+        totem: "Elephant",
+        name: "Uyulaya",
+        role: "Farmer",
+        direction: "south",
+      },
+      {
+        totem: "Emu",
+        name: "The Eviscerator",
+        role: "Assassin",
+        direction: "south",
+      },
+      {
+        totem: "Fennec Fox",
+        name: "Swift Rain",
+        role: "Dancer",
+        direction: "south",
+      },
+      {
+        totem: "Fire Ant",
+        name: "Defshatha",
+        role: "Healer",
+        direction: "south",
+      },
+      {
+        totem: "Flamingo",
+        name: "Qinakhata",
+        role: "Athlete",
+        direction: "south",
+      },
+      {
+        totem: "Flea",
+        name: "One Hop",
+        role: "Drunken Master",
+        direction: "south",
+      },
+      {
+        totem: "Garuda",
+        name: "Carries The World",
+        role: "Warleader",
+        direction: "south",
+      },
+      {
+        totem: "Gecko",
+        name: "Silavathentona",
+        role: "Food-taster",
+        direction: "south",
+      },
+      {
+        totem: "Giant Arapaima",
+        name: "Klatang 'Emashi",
+        role: "Healer",
+        direction: "south",
+      },
+      {
+        totem: "Gila Monster",
+        name: "Multaniko",
+        role: "Infiltrator",
+        direction: "south",
+      },
+      {
+        totem: "Giraffe",
+        name: "Inathetha",
+        role: "Warleader",
+        direction: "south",
+      },
+      {
+        totem: "Golden Eagle",
+        name: "Ramberanda",
+        role: "Archer",
+        direction: "south",
+      },
 
-{"totem": "Albatross", "name": "Smoke Flies Far", "role": "Spirit collector", "direction": "north"},
-{"totem": "American Lion", "name": "Alfhild", "role": "Archaeologist", "direction": "north"},
-{"totem": "Arctic Hare", "name": "Unseen Steps", "role": "Spy", "direction": "north"},
-{"totem": "Arctic Tern", "name": "Quick Winds", "role": "Messenger", "direction": "north"},
-{"totem": "Arctodus", "name": "Hill Teeth", "role": "Archer", "direction": "north"},
-{"totem": "Bald Eagle", "name": "Dagmar", "role": "Scout", "direction": "north"},
-{"totem": "Bear-dog", "name": "Embla", "role": "Boxer", "direction": "north"},
-{"totem": "Beluga", "name": "Moon Skin", "role": "Blacksmith", "direction": "north"},
-{"totem": "Bluebird", "name": "Erland", "role": "Messenger", "direction": "north"},
-{"totem": "Bumblebee", "name": "One Last Flower", "role": "Captain", "direction": "north"},
-{"totem": "Caribou", "name": "No Horns", "role": "Herbalist", "direction": "north"},
-{"totem": "Cave Lion", "name": "Sharp as Broken Teeth", "role": "Loremaster", "direction": "north"},
-{"totem": "Chalicotheurium", "name": "Folke", "role": "Athlete", "direction": "north"},
-{"totem": "Dall Sheep", "name": "Gerd", "role": "Lieutenant", "direction": "north"},
-{"totem": "Deinotherium", "name": "Ebbe", "role": "Priest", "direction": "north"},
-{"totem": "Elephant Seal", "name": "Dark Eyes of the Sea", "role": "Wrestling", "direction": "north"},
-{"totem": "Emperor Penguin", "name": "The Empress of Frozen Tears", "role": "Ruler", "direction": "north"},
-{"totem": "Eohippus", "name": "Birger", "role": "Surgeon", "direction": "north"},
-{"totem": "Ermine", "name": "Stolen Tail", "role": "Dancer", "direction": "north"},
-{"totem": "Furred Salmon", "name": "Gosta", "role": "Actor", "direction": "north"},
-{"totem": "Giant Beaver", "name": "Feller of the East", "role": "Brawler", "direction": "north"},
-{"totem": "Giant Sloth", "name": "Gunvor", "role": "Potionmaker", "direction": "north"},
-{"totem": "Glyptodon", "name": "Stonebreaker", "role": "Geomancer", "direction": "north"},
-{"totem": "Gomphothere", "name": "Shoveltusk", "role": "Brawler", "direction": "north"},
-{"totem": "Gopher", "name": "Hemming", "role": "Bureaucrat", "direction": "north"},
-{"totem": "Great Auk", "name": "Jannicke", "role": "Drunken Master", "direction": "north"},
-{"totem": "Great Hoary Marmot", "name": "Biter", "role": "Horse-Archer", "direction": "north"},
-{"totem": "Great Horned Owl", "name": "Goron", "role": "Butcher", "direction": "north"},
-{"totem": "Greenland Shark", "name": "Frozen Tooth", "role": "Hypnotist", "direction": "north"},
-{"totem": "Grizzly Bear", "name": "Nokura the Grey", "role": "Manse repair", "direction": "north"},
-{"totem": "Ground Squirrel", "name": "Fordern", "role": "Architect", "direction": "north"},
-{"totem": "Gyrfalcon", "name": "Szrianzi", "role": "Hunter", "direction": "north"},
-{"totem": "Harbor Seal", "name": "Gilka", "role": "Sailor", "direction": "north"},
-{"totem": "Harp Seal", "name": "Princess Ralia", "role": "Traveler", "direction": "north"},
-{"totem": "Herring", "name": "Ten Thousand Scales", "role": "Assassin", "direction": "north"},
-{"totem": "Ibex", "name": "Astaa", "role": "Bodyguard", "direction": "north"},
-{"totem": "Irish Elk", "name": "Gustav", "role": "Chimera", "direction": "north"},
-{"totem": "Kangaroo Rat", "name": "Helka", "role": "Swordsman", "direction": "north"},
-{"totem": "Kinglet", "name": "Sky-King", "role": "Silversmith", "direction": "north"},
-{"totem": "Leatherback Turtle", "name": "Knows No Limit", "role": "Demon-hunter", "direction": "north"},
-{"totem": "Lemming", "name": "Volker", "role": "Navigator", "direction": "north"},
-{"totem": "Leopard Seal", "name": "Synnove", "role": "Thief", "direction": "north"},
-{"totem": "Loon", "name": "Eeijja", "role": "Wyld sage", "direction": "north"},
-{"totem": "Lynx", "name": "Jan", "role": "Chef", "direction": "north"},
-{"totem": "Mammoth", "name": "Boka Silvertusk", "role": "Sorcerer", "direction": "north"},
-{"totem": "Mastodon", "name": "Njord", "role": "Berserker", "direction": "north"},
-{"totem": "Moose", "name": "Arnbjorg Heavy-head", "role": "Philosopher", "direction": "north"},
-{"totem": "Mountain Goat", "name": "Climbs the Clouds", "role": "Teacher", "direction": "north"},
-{"totem": "Musk Ox", "name": "No-Eyes", "role": "Inquisitor", "direction": "north"},
-{"totem": "Muskrat", "name": "Olaph", "role": "Shipwright", "direction": "north"},
-{"totem": "Oreodont", "name": "Vessatta", "role": "Treasure Hunter", "direction": "north"},
-{"totem": "Otter", "name": "Tuuomo Cleareyes", "role": "Healer", "direction": "north"},
-{"totem": "Petrel", "name": "Gry", "role": "Manse Repair", "direction": "north"},
-{"totem": "Polar Bear", "name": "Lazar Clawfist", "role": "Spearmaiden", "direction": "north"},
-{"totem": "Ptarmigan", "name": "Hinka", "role": "Nobleman", "direction": "north"},
-{"totem": "Puffin", "name": "Judota", "role": "Mastermind", "direction": "north"},
-{"totem": "Roc", "name": "Aava", "role": "Vigilante", "direction": "north"},
-{"totem": "Rockhopper Penguin", "name": "Karol", "role": "Librarian", "direction": "north"},
-{"totem": "Sable", "name": "Petra", "role": "Tailor", "direction": "north"},
-{"totem": "Sabretooth Lion", "name": "Minttu", "role": "Surgeon", "direction": "north"},
-{"totem": "Saiga", "name": "Scents the Ground", "role": "Translator", "direction": "north"},
-{"totem": "Screech Owl", "name": "Elisa Stonefist", "role": "Berserker", "direction": "north"},
-{"totem": "Siberian Tiger", "name": "Kyrill Longtooth", "role": "Martial Artist", "direction": "north"},
-{"totem": "Singing Vole", "name": "Lalia", "role": "Musician", "direction": "north"},
-{"totem": "Skua", "name": "Eerno", "role": "Historian", "direction": "north"},
-{"totem": "Snow Goose", "name": "Emil", "role": "Navigator", "direction": "north"},
-{"totem": "Snow Leopard", "name": "Counts To None", "role": "Watchman", "direction": "north"},
-{"totem": "Snow Monkey", "name": "Allokha the Clown", "role": "Spy", "direction": "north"},
-{"totem": "Snowshoe Hare", "name": "Yrno", "role": "Stealth", "direction": "north"},
-{"totem": "Snowy Owl", "name": "Stjerko Featherdown", "role": "Archer", "direction": "north"},
-{"totem": "Stygimoloch", "name": "Ragnvald", "role": "Lawman", "direction": "north"},
-{"totem": "Syrian Camel", "name": "Ansengar", "role": "Shock troop", "direction": "north"},
-{"totem": "Teratorn", "name": "Jaakoppi Hobblefoot", "role": "Orator", "direction": "north"},
-{"totem": "Walrus", "name": "Two Homes", "role": "Traveler", "direction": "north"},
-{"totem": "Wolf", "name": "Sandar", "role": "Sensei", "direction": "north"},
-{"totem": "Wolverine", "name": "Wolsung", "role": "Soldier", "direction": "north"},
-{"totem": "Wood Frog", "name": "Inkeri", "role": "Merchant", "direction": "north"},
-{"totem": "Woodchuck", "name": "Halvarr", "role": "Pickpocket", "direction": "north"},
-{"totem": "Wooly Bear Moth", "name": "Majai", "role": "Socialte", "direction": "north"},
-{"totem": "Wooly Rhino", "name": "Hjoma the Unsafe", "role": "Exorcist", "direction": "north"},
+      { totem: "Hare", name: "Longfoot", role: "Hunter", direction: "south" },
+      {
+        totem: "Hippo ",
+        name: "Uwudak'a",
+        role: "Monster",
+        direction: "south",
+      },
+      {
+        totem: "Hyena",
+        name: "Nine Days Dead",
+        role: "Butcher",
+        direction: "south",
+      },
+      {
+        totem: "Ibis",
+        name: "Flora Softwing",
+        role: "Scout",
+        direction: "south",
+      },
+      {
+        totem: "Jackal",
+        name: "Sathea",
+        role: "Librarian",
+        direction: "south",
+      },
+      {
+        totem: "Jackalope",
+        name: "Elkhathedran",
+        role: "Geomancer",
+        direction: "south",
+      },
+      {
+        totem: "Jerboa",
+        name: "Serai Longtoes",
+        role: "Traveler",
+        direction: "south",
+      },
+      {
+        totem: "Kangaroo",
+        name: "Alratha",
+        role: "Boxer",
+        direction: "south",
+      },
+      {
+        totem: "Komodo Dragon",
+        name: "S'serrak",
+        role: "Drug merchant",
+        direction: "south",
+      },
+      {
+        totem: "Kookaburra",
+        name: "Song of Freedom",
+        role: "Rabble-rouser",
+        direction: "south",
+      },
+      {
+        totem: "Lungfish",
+        name: "Wethashent",
+        role: "Captain",
+        direction: "south",
+      },
+      {
+        totem: "Maned Wolf",
+        name: "Phantelsandet",
+        role: "Sensei",
+        direction: "south",
+      },
+      {
+        totem: "Meerkat",
+        name: "Quickeye",
+        role: "Actor",
+        direction: "south",
+      },
+      {
+        totem: "Minnow",
+        name: "Hathi",
+        role: "Architect",
+        direction: "south",
+      },
+      {
+        totem: "Peacock",
+        name: "Brilliant Cloak",
+        role: "Socialite",
+        direction: "south",
+      },
+      {
+        totem: "Mongoose",
+        name: "Intifesheda",
+        role: "Socialte",
+        direction: "south",
+      },
+      {
+        totem: "Monitor Lizard",
+        name: "Belthemat",
+        role: "Inquisitor",
+        direction: "south",
+      },
+      {
+        totem: "Mountain Lion",
+        name: "Endefado",
+        role: "Orator",
+        direction: "south",
+      },
+      {
+        totem: "Hornbill",
+        name: "Thetta Bignose",
+        role: "Blacksmith",
+        direction: "south",
+      },
+      {
+        totem: "Okapi",
+        name: "Idashavo",
+        role: "Messenger",
+        direction: "south",
+      },
+      {
+        totem: "Painted Dog",
+        name: "Hrotemash",
+        role: "Navigator",
+        direction: "south",
+      },
+      {
+        totem: "Paper Wasp",
+        name: "Kotala Fesho",
+        role: "Infiltrator",
+        direction: "south",
+      },
+      {
+        totem: "Peccary",
+        name: "Bristlebeard",
+        role: "Teacher",
+        direction: "south",
+      },
+      {
+        totem: "Pink Fairy Armadillo",
+        name: "Lives Beyond",
+        role: "Wyld Sage",
+        direction: "south",
+      },
+      {
+        totem: "Raiton",
+        name: "Eshavthea",
+        role: "Plaguebringer",
+        direction: "south",
+      },
+      {
+        totem: "Raven",
+        name: "Itimefal",
+        role: "Mastermind",
+        direction: "south",
+      },
+      {
+        totem: "Red Lesser Panda",
+        name: "Cereat",
+        role: "Bureaucrat",
+        direction: "south",
+      },
+      {
+        totem: "Red River Hog",
+        name: "Antefa",
+        role: "Surgeon",
+        direction: "south",
+      },
+      {
+        totem: "Rhinocerous",
+        name: "Khanat Roughskin",
+        role: "Lieutenant",
+        direction: "south",
+      },
+      {
+        totem: "Roadrunner",
+        name: "Cliffdodger",
+        role: "Traveler",
+        direction: "south",
+      },
+      {
+        totem: "Scarab",
+        name: "Seshmila",
+        role: "Historian",
+        direction: "south",
+      },
+      {
+        totem: "Scorpion",
+        name: "Scares the Dead",
+        role: "Exorcist",
+        direction: "south",
+      },
+      {
+        totem: "Secretary Bird",
+        name: "Delatha",
+        role: "Nobleman",
+        direction: "south",
+      },
+      {
+        totem: "Shoebill",
+        name: "Eletat",
+        role: "Silversmith",
+        direction: "south",
+      },
+      {
+        totem: "Sidewinder",
+        name: "Ushemara",
+        role: "Martial Artist",
+        direction: "south",
+      },
+      {
+        totem: "Siege Lizard",
+        name: "Big Shuto",
+        role: "Swordsman",
+        direction: "south",
+      },
+      { totem: "Skink", name: "Renattheno", role: "Spy", direction: "south" },
+      {
+        totem: "Stork",
+        name: "Joybringer",
+        role: "Manse Repair",
+        direction: "south",
+      },
+      {
+        totem: "Sugar Glider",
+        name: "Djubi",
+        role: "Healer",
+        direction: "south",
+      },
+      {
+        totem: "Tamarin",
+        name: "Alateth",
+        role: "Priest",
+        direction: "south",
+      },
+      {
+        totem: "Termite",
+        name: "Homewrecker",
+        role: "Demolitions",
+        direction: "south",
+      },
+      {
+        totem: "Thorny Devil",
+        name: "Yuto the Clever",
+        role: "Archaeologist",
+        direction: "south",
+      },
+      {
+        totem: "Vulture",
+        name: "Seven Mile Circle",
+        role: "Inspector",
+        direction: "south",
+      },
+      {
+        totem: "Wallaby",
+        name: "Ifashena",
+        role: "Functionary",
+        direction: "south",
+      },
+      {
+        totem: "Warthog",
+        name: "Yufathet",
+        role: "Berserker",
+        direction: "south",
+      },
+      {
+        totem: "Water Buffalo",
+        name: "Wuoshentheo",
+        role: "Soldier",
+        direction: "south",
+      },
+      {
+        totem: "Wildebeest",
+        name: "Chendith",
+        role: "Spearmaiden",
+        direction: "south",
+      },
+      {
+        totem: "Wombat",
+        name: "Ul'Bethan Shelam",
+        role: "Herbalist",
+        direction: "south",
+      },
+      {
+        totem: "Wyvern",
+        name: "Hantitath",
+        role: "Assassin",
+        direction: "south",
+      },
+      {
+        totem: "Yali",
+        name: "Mind-ender",
+        role: "Hypnotist",
+        direction: "south",
+      },
+      {
+        totem: "Zebra",
+        name: "One Among Many",
+        role: "Pickpocket",
+        direction: "south",
+      },
+      {
+        totem: "Albatross",
+        name: "Smoke Flies Far",
+        role: "Spirit collector",
+        direction: "north",
+      },
+      {
+        totem: "American Lion",
+        name: "Alfhild",
+        role: "Archaeologist",
+        direction: "north",
+      },
+      {
+        totem: "Arctic Hare",
+        name: "Unseen Steps",
+        role: "Spy",
+        direction: "north",
+      },
+      {
+        totem: "Arctic Tern",
+        name: "Quick Winds",
+        role: "Messenger",
+        direction: "north",
+      },
+      {
+        totem: "Arctodus",
+        name: "Hill Teeth",
+        role: "Archer",
+        direction: "north",
+      },
+      {
+        totem: "Bald Eagle",
+        name: "Dagmar",
+        role: "Scout",
+        direction: "north",
+      },
+      { totem: "Bear-dog", name: "Embla", role: "Boxer", direction: "north" },
+      {
+        totem: "Beluga",
+        name: "Moon Skin",
+        role: "Blacksmith",
+        direction: "north",
+      },
+      {
+        totem: "Bluebird",
+        name: "Erland",
+        role: "Messenger",
+        direction: "north",
+      },
+      {
+        totem: "Bumblebee",
+        name: "One Last Flower",
+        role: "Captain",
+        direction: "north",
+      },
+      {
+        totem: "Caribou",
+        name: "No Horns",
+        role: "Herbalist",
+        direction: "north",
+      },
+      {
+        totem: "Cave Lion",
+        name: "Sharp as Broken Teeth",
+        role: "Loremaster",
+        direction: "north",
+      },
+      {
+        totem: "Chalicotheurium",
+        name: "Folke",
+        role: "Athlete",
+        direction: "north",
+      },
+      {
+        totem: "Dall Sheep",
+        name: "Gerd",
+        role: "Lieutenant",
+        direction: "north",
+      },
+      {
+        totem: "Deinotherium",
+        name: "Ebbe",
+        role: "Priest",
+        direction: "north",
+      },
+      {
+        totem: "Elephant Seal",
+        name: "Dark Eyes of the Sea",
+        role: "Wrestling",
+        direction: "north",
+      },
+      {
+        totem: "Emperor Penguin",
+        name: "The Empress of Frozen Tears",
+        role: "Ruler",
+        direction: "north",
+      },
+      {
+        totem: "Eohippus",
+        name: "Birger",
+        role: "Surgeon",
+        direction: "north",
+      },
+      {
+        totem: "Ermine",
+        name: "Stolen Tail",
+        role: "Dancer",
+        direction: "north",
+      },
+      {
+        totem: "Furred Salmon",
+        name: "Gosta",
+        role: "Actor",
+        direction: "north",
+      },
+      {
+        totem: "Giant Beaver",
+        name: "Feller of the East",
+        role: "Brawler",
+        direction: "north",
+      },
+      {
+        totem: "Giant Sloth",
+        name: "Gunvor",
+        role: "Potionmaker",
+        direction: "north",
+      },
+      {
+        totem: "Glyptodon",
+        name: "Stonebreaker",
+        role: "Geomancer",
+        direction: "north",
+      },
+      {
+        totem: "Gomphothere",
+        name: "Shoveltusk",
+        role: "Brawler",
+        direction: "north",
+      },
+      {
+        totem: "Gopher",
+        name: "Hemming",
+        role: "Bureaucrat",
+        direction: "north",
+      },
+      {
+        totem: "Great Auk",
+        name: "Jannicke",
+        role: "Drunken Master",
+        direction: "north",
+      },
+      {
+        totem: "Great Hoary Marmot",
+        name: "Biter",
+        role: "Horse-Archer",
+        direction: "north",
+      },
+      {
+        totem: "Great Horned Owl",
+        name: "Goron",
+        role: "Butcher",
+        direction: "north",
+      },
+      {
+        totem: "Greenland Shark",
+        name: "Frozen Tooth",
+        role: "Hypnotist",
+        direction: "north",
+      },
+      {
+        totem: "Grizzly Bear",
+        name: "Nokura the Grey",
+        role: "Manse repair",
+        direction: "north",
+      },
+      {
+        totem: "Ground Squirrel",
+        name: "Fordern",
+        role: "Architect",
+        direction: "north",
+      },
+      {
+        totem: "Gyrfalcon",
+        name: "Szrianzi",
+        role: "Hunter",
+        direction: "north",
+      },
+      {
+        totem: "Harbor Seal",
+        name: "Gilka",
+        role: "Sailor",
+        direction: "north",
+      },
+      {
+        totem: "Harp Seal",
+        name: "Princess Ralia",
+        role: "Traveler",
+        direction: "north",
+      },
+      {
+        totem: "Herring",
+        name: "Ten Thousand Scales",
+        role: "Assassin",
+        direction: "north",
+      },
+      { totem: "Ibex", name: "Astaa", role: "Bodyguard", direction: "north" },
+      {
+        totem: "Irish Elk",
+        name: "Gustav",
+        role: "Monster",
+        direction: "north",
+      },
+      {
+        totem: "Kangaroo Rat",
+        name: "Helka",
+        role: "Swordsman",
+        direction: "north",
+      },
+      {
+        totem: "Kinglet",
+        name: "Sky-King",
+        role: "Silversmith",
+        direction: "north",
+      },
+      {
+        totem: "Leatherback Turtle",
+        name: "Knows No Limit",
+        role: "Demon-hunter",
+        direction: "north",
+      },
+      {
+        totem: "Lemming",
+        name: "Volker",
+        role: "Navigator",
+        direction: "north",
+      },
+      {
+        totem: "Leopard Seal",
+        name: "Synnove",
+        role: "Thief",
+        direction: "north",
+      },
+      {
+        totem: "Loon",
+        name: "Eeijja",
+        role: "Wyld sage",
+        direction: "north",
+      },
+      { totem: "Lynx", name: "Jan", role: "Chef", direction: "north" },
+      {
+        totem: "Mammoth",
+        name: "Boka Silvertusk",
+        role: "Sorcerer",
+        direction: "north",
+      },
+      {
+        totem: "Mastodon",
+        name: "Njord",
+        role: "Berserker",
+        direction: "north",
+      },
+      {
+        totem: "Moose",
+        name: "Arnbjorg Heavy-head",
+        role: "Philosopher",
+        direction: "north",
+      },
+      {
+        totem: "Mountain Goat",
+        name: "Climbs the Clouds",
+        role: "Teacher",
+        direction: "north",
+      },
+      {
+        totem: "Musk Ox",
+        name: "No-Eyes",
+        role: "Inquisitor",
+        direction: "north",
+      },
+      {
+        totem: "Muskrat",
+        name: "Olaph",
+        role: "Shipwright",
+        direction: "north",
+      },
+      {
+        totem: "Oreodont",
+        name: "Vessatta",
+        role: "Treasure Hunter",
+        direction: "north",
+      },
+      {
+        totem: "Otter",
+        name: "Tuuomo Cleareyes",
+        role: "Healer",
+        direction: "north",
+      },
+      {
+        totem: "Petrel",
+        name: "Gry",
+        role: "Manse Repair",
+        direction: "north",
+      },
+      {
+        totem: "Polar Bear",
+        name: "Lazar Clawfist",
+        role: "Spearmaiden",
+        direction: "north",
+      },
+      {
+        totem: "Ptarmigan",
+        name: "Hinka",
+        role: "Nobleman",
+        direction: "north",
+      },
+      {
+        totem: "Puffin",
+        name: "Judota",
+        role: "Mastermind",
+        direction: "north",
+      },
+      { totem: "Roc", name: "Aava", role: "Vigilante", direction: "north" },
+      {
+        totem: "Rockhopper Penguin",
+        name: "Karol",
+        role: "Librarian",
+        direction: "north",
+      },
+      { totem: "Sable", name: "Petra", role: "Tailor", direction: "north" },
+      {
+        totem: "Sabretooth Lion",
+        name: "Minttu",
+        role: "Surgeon",
+        direction: "north",
+      },
+      {
+        totem: "Saiga",
+        name: "Scents the Ground",
+        role: "Translator",
+        direction: "north",
+      },
+      {
+        totem: "Screech Owl",
+        name: "Elisa Stonefist",
+        role: "Berserker",
+        direction: "north",
+      },
+      {
+        totem: "Siberian Tiger",
+        name: "Kyrill Longtooth",
+        role: "Martial Artist",
+        direction: "north",
+      },
+      {
+        totem: "Singing Vole",
+        name: "Lalia",
+        role: "Musician",
+        direction: "north",
+      },
+      { totem: "Skua", name: "Eerno", role: "Historian", direction: "north" },
+      {
+        totem: "Snow Goose",
+        name: "Emil",
+        role: "Navigator",
+        direction: "north",
+      },
+      {
+        totem: "Snow Leopard",
+        name: "Counts To None",
+        role: "Watchman",
+        direction: "north",
+      },
+      {
+        totem: "Snow Monkey",
+        name: "Allokha the Clown",
+        role: "Spy",
+        direction: "north",
+      },
+      {
+        totem: "Snowshoe Hare",
+        name: "Yrno",
+        role: "Stealth",
+        direction: "north",
+      },
+      {
+        totem: "Snowy Owl",
+        name: "Stjerko Featherdown",
+        role: "Archer",
+        direction: "north",
+      },
+      {
+        totem: "Stygimoloch",
+        name: "Ragnvald",
+        role: "Lawman",
+        direction: "north",
+      },
+      {
+        totem: "Syrian Camel",
+        name: "Ansengar",
+        role: "Shock troop",
+        direction: "north",
+      },
+      {
+        totem: "Teratorn",
+        name: "Jaakoppi Hobblefoot",
+        role: "Orator",
+        direction: "north",
+      },
+      {
+        totem: "Walrus",
+        name: "Two Homes",
+        role: "Traveler",
+        direction: "north",
+      },
+      { totem: "Wolf", name: "Sandar", role: "Sensei", direction: "north" },
+      {
+        totem: "Wolverine",
+        name: "Wolsung",
+        role: "Soldier",
+        direction: "north",
+      },
+      {
+        totem: "Wood Frog",
+        name: "Inkeri",
+        role: "Merchant",
+        direction: "north",
+      },
+      {
+        totem: "Woodchuck",
+        name: "Halvarr",
+        role: "Pickpocket",
+        direction: "north",
+      },
+      {
+        totem: "Wooly Bear Moth",
+        name: "Majai",
+        role: "Socialte",
+        direction: "north",
+      },
+      {
+        totem: "Wooly Rhino",
+        name: "Hjoma the Unsafe",
+        role: "Exorcist",
+        direction: "north",
+      },
+      {
+        totem: "Anaconda",
+        name: "Wilan Raincatcher",
+        role: "Dancer",
+        direction: "east",
+      },
+      {
+        totem: "Aurochs",
+        name: "Dagowyndra Crownmaker",
+        role: "Bureaucrat",
+        direction: "east",
+      },
+      {
+        totem: "Aye-Aye",
+        name: "Itzocoatl Quick-eyes",
+        role: "Explorer",
+        direction: "east",
+      },
+      {
+        totem: "Banana Spider",
+        name: "Danebits Manyeyes",
+        role: "Assassin",
+        direction: "east",
+      },
+      {
+        totem: "Bird of Paradise",
+        name: "Sayachec Skylord",
+        role: "Archer",
+        direction: "east",
+      },
+      {
+        totem: "Black Bear",
+        name: "Corace Fisher",
+        role: "Poet",
+        direction: "east",
+      },
+      {
+        totem: "Boar",
+        name: "Finlot Death-of-peace",
+        role: "Berserker",
+        direction: "east",
+      },
+      {
+        totem: "Bobcat",
+        name: "Belit Warmaker",
+        role: "Watchman",
+        direction: "east",
+      },
+      {
+        totem: "Brown Bat",
+        name: "Carthia Flowernose",
+        role: "Musician",
+        direction: "east",
+      },
+      {
+        totem: "Catfish",
+        name: "Timot Riverlord",
+        role: "Captain",
+        direction: "east",
+      },
+      {
+        totem: "Coati",
+        name: "Tuxqui Giftmaker",
+        role: "Thief",
+        direction: "east",
+      },
+      {
+        totem: "Coyote",
+        name: "Saffron Ridgewalker",
+        role: "Tracking",
+        direction: "east",
+      },
+      {
+        totem: "Deer",
+        name: "Seria the Provider",
+        role: "Socialite",
+        direction: "east",
+      },
+      {
+        totem: "Dimetrodon",
+        name: "Chaneil Cloakmaker",
+        role: "Sorcerer",
+        direction: "east",
+      },
+      {
+        totem: "Doedicurus",
+        name: "Celetony Landking",
+        role: "Tailor",
+        direction: "east",
+      },
+      {
+        totem: "Dragon-Ox",
+        name: "Keloch Joygiver",
+        role: "Drug merchant",
+        direction: "east",
+      },
+      {
+        totem: "Dragonfly",
+        name: "Cinnamon Prosperous",
+        role: "Surgeon",
+        direction: "east",
+      },
+      {
+        totem: "Echidna",
+        name: "Itlcan the Tyrant",
+        role: "Nobleman",
+        direction: "east",
+      },
+      {
+        totem: "Electric Eel",
+        name: "Ayver, Duke of the Moon",
+        role: "Demon-hunter",
+        direction: "east",
+      },
+      {
+        totem: "Flying Fox",
+        name: "One Bright Eye",
+        role: "Necromancer",
+        direction: "east",
+      },
+      {
+        totem: "Flying Squirrel",
+        name: "Coriander Manytongues",
+        role: "Actor",
+        direction: "east",
+      },
+      {
+        totem: "Fossa",
+        name: "Skalnia Shiningeyes",
+        role: "Soldier",
+        direction: "east",
+      },
+      {
+        totem: "Funnel Spider",
+        name: "Citalmina Wakener",
+        role: "Archaeologist",
+        direction: "east",
+      },
+      {
+        totem: "Gar",
+        name: "Jenala Shieldbearer",
+        role: "Bodyguard",
+        direction: "east",
+      },
+      {
+        totem: "Gigantopithecus",
+        name: "Gorgam Strongfist",
+        role: "Blacksmith",
+        direction: "east",
+      },
+      {
+        totem: "Goliath Beetle",
+        name: "Uam Benediction",
+        role: "Slaver",
+        direction: "east",
+      },
+      {
+        totem: "Gorilla",
+        name: "Roshet Glorymind",
+        role: "Sorcerer",
+        direction: "east",
+      },
+      {
+        totem: "Great Blue Heron",
+        name: "Ozlamatec Skygem",
+        role: "Hunter",
+        direction: "east",
+      },
+      {
+        totem: "Ground Bee",
+        name: "Ore of Autumn",
+        role: "Geomancer",
+        direction: "east",
+      },
+      {
+        totem: "Haast's Eagle",
+        name: "Utan Jadestar",
+        role: "Monster",
+        direction: "east",
+      },
+      {
+        totem: "Honey Badger",
+        name: "Invicta the Uncaring",
+        role: "Exorcist",
+        direction: "east",
+      },
+      {
+        totem: "Hummingbird Hawk-Moth",
+        name: "Beryl Vaultmaster",
+        role: "Architect",
+        direction: "east",
+      },
+      {
+        totem: "Kirin",
+        name: "Bismo Life's Canvas",
+        role: "Hypnotist",
+        direction: "east",
+      },
+      {
+        totem: "Kiwi",
+        name: "Jenaley Swiftmind",
+        role: "Silversmith",
+        direction: "east",
+      },
+      {
+        totem: "Koala",
+        name: "Biran Strongwill",
+        role: "Martial Artist",
+        direction: "east",
+      },
+      {
+        totem: "Lemur",
+        name: "Ragna the Delicate",
+        role: "Shipwright",
+        direction: "east",
+      },
+      {
+        totem: "Macaque",
+        name: "Clove Longhand",
+        role: "Lawman",
+        direction: "east",
+      },
+      {
+        totem: "Mara",
+        name: "Mikal Secret-keeper",
+        role: "Inquisitor",
+        direction: "east",
+      },
+      {
+        totem: "Marten",
+        name: "Chennai Sharpnose",
+        role: "Explorer",
+        direction: "east",
+      },
+      {
+        totem: "Milipede",
+        name: "Retta Laststanding",
+        role: "Lieutenant",
+        direction: "east",
+      },
+      {
+        totem: "Mockingbird",
+        name: "Sayaxaman Oakenhome",
+        role: "Manse Repair",
+        direction: "east",
+      },
+      {
+        totem: "Mospid",
+        name: "Mazakin Longknife",
+        role: "Butcher",
+        direction: "east",
+      },
+      {
+        totem: "Mosquito",
+        name: "Aksun Blightcarver",
+        role: "Archer",
+        direction: "east",
+      },
+      {
+        totem: "Nutria",
+        name: "Alaley Childwatch",
+        role: "Sensei",
+        direction: "east",
+      },
+      {
+        totem: "Orangutan",
+        name: "Shar Strongarm",
+        role: "Boxer",
+        direction: "east",
+      },
+      {
+        totem: "Ox",
+        name: "Lyrah Heartstopper",
+        role: "Healer",
+        direction: "east",
+      },
+      {
+        totem: "Panda",
+        name: "Colgrimm Slow-to-fail",
+        role: "Drunken Master",
+        direction: "east",
+      },
+      {
+        totem: "Panda Ant",
+        name: "Sayden the Incorruptible",
+        role: "Food-taster",
+        direction: "east",
+      },
+      {
+        totem: "Panther",
+        name: "Merjoa the Brave",
+        role: "Scout",
+        direction: "east",
+      },
+      {
+        totem: "Parrot",
+        name: "Tyris the Aged",
+        role: "Historian",
+        direction: "east",
+      },
+      {
+        totem: "Peryton",
+        name: "Yaohuitli the Faceless",
+        role: "Mastermind",
+        direction: "east",
+      },
+      {
+        totem: "Pestletail",
+        name: "Janna Hatmaker",
+        role: "Merchant",
+        direction: "east",
+      },
+      {
+        totem: "Platypus",
+        name: "Cotton Spiritsinger",
+        role: "Philosopher",
+        direction: "east",
+      },
+      {
+        totem: "Poodle Moth",
+        name: "Burra Lightmind",
+        role: "Librarian",
+        direction: "east",
+      },
+      {
+        totem: "Porcupine",
+        name: "Flora Spearmaker",
+        role: "Shock troop",
+        direction: "east",
+      },
+      {
+        totem: "Possum",
+        name: "Utlu Treekeeper",
+        role: "Herbalist",
+        direction: "east",
+      },
+      {
+        totem: "Raccoon",
+        name: "Paksara the Clever",
+        role: "Chef",
+        direction: "east",
+      },
+      {
+        totem: "Rattlesnake",
+        name: "Incense Sorrowbane",
+        role: "Potionmaker",
+        direction: "east",
+      },
+      {
+        totem: "River Dragon",
+        name: "Marinaria Bonesplitter",
+        role: "Spearmaiden",
+        direction: "east",
+      },
+      {
+        totem: "River Eel",
+        name: "Leoz of the Oasis",
+        role: "Navigator",
+        direction: "east",
+      },
+      {
+        totem: "River Otter",
+        name: "Khavyn Shrinebane",
+        role: "Inspector",
+        direction: "east",
+      },
+      {
+        totem: "Salmon",
+        name: "Lella Starhand",
+        role: "Horse-Archer",
+        direction: "east",
+      },
+      {
+        totem: "Skunk",
+        name: "Reclusive Jade",
+        role: "Spy",
+        direction: "east",
+      },
+      {
+        totem: "Sloth",
+        name: "Joia Doubledraught",
+        role: "Teacher",
+        direction: "east",
+      },
+      {
+        totem: "Snipe",
+        name: "Xeidi the Unfindable",
+        role: "Messenger",
+        direction: "east",
+      },
+      {
+        totem: "Strangler Lizard",
+        name: "Damia Nightwalker",
+        role: "Spy",
+        direction: "east",
+      },
+      {
+        totem: "Sunda Colugo",
+        name: "Blackpepper",
+        role: "Plaguebringer",
+        direction: "east",
+      },
+      {
+        totem: "Tenrec",
+        name: "Comitlatl Plowwoman",
+        role: "Farmer",
+        direction: "east",
+      },
+      {
+        totem: "Terror Bird",
+        name: "Tottan Lifestalker",
+        role: "Assassin",
+        direction: "east",
+      },
+      {
+        totem: "Thylacine",
+        name: "Hefana Longstride",
+        role: "Swordsman",
+        direction: "east",
+      },
+      {
+        totem: "Tick",
+        name: "Ptazpali Sidewise",
+        role: "Pickpocket",
+        direction: "east",
+      },
+      {
+        totem: "Titanoboa",
+        name: "The Nameless One",
+        role: "Priest",
+        direction: "east",
+      },
+      {
+        totem: "Tree Frog",
+        name: "Alathur Smoothtongue",
+        role: "Functionary",
+        direction: "east",
+      },
+      {
+        totem: "Trout",
+        name: "Olive Boarbreaker",
+        role: "Brawler",
+        direction: "east",
+      },
+      {
+        totem: "Tufted Deer",
+        name: "Topaz, Queen of Winter",
+        role: "Warleader",
+        direction: "east",
+      },
+      {
+        totem: "Tyrant Lizard",
+        name: "Thriel Greatvoice",
+        role: "Orator",
+        direction: "east",
+      },
+      {
+        totem: "Uakari",
+        name: "Palmoil the Secret",
+        role: "Wyld Sage",
+        direction: "east",
+      },
+      {
+        totem: "Water Moccasin",
+        name: "Taransek the Silent",
+        role: "Translator",
+        direction: "east",
+      },
+      {
+        totem: "Wolpertinger",
+        name: "Wyndod Pistonleg",
+        role: "Athlete",
+        direction: "east",
+      },
+      {
+        totem: "Woodpecker",
+        name: "Cetor Harvester",
+        role: "Treasure Hunter",
+        direction: "east",
+      },
+      {
+        totem: "Abalone",
+        name: "Hanalei",
+        role: "Architect",
+        direction: "west",
+      },
+      {
+        totem: "Ahuizotl",
+        name: "Inina",
+        role: "Potionmaker",
+        direction: "west",
+      },
+      {
+        totem: "Ammonite",
+        name: "Endless Swirls",
+        role: "Spearmaiden",
+        direction: "west",
+      },
+      {
+        totem: "Anemone",
+        name: "Kaile'a",
+        role: "Captain",
+        direction: "west",
+      },
+      {
+        totem: "Anglerfish",
+        name: "Light in the Darkness",
+        role: "Healer",
+        direction: "west",
+      },
+      {
+        totem: "Asterolepis",
+        name: "Lawai'a",
+        role: "Merchant",
+        direction: "west",
+      },
+      {
+        totem: "Batfish",
+        name: "Flies Through Water",
+        role: "Explorer",
+        direction: "west",
+      },
+      {
+        totem: "Blue Whale",
+        name: "Mahina of the Deeps",
+        role: "Vigilante",
+        direction: "west",
+      },
+      {
+        totem: "Bobtail Squid",
+        name: "Ten-Touch Tenoch",
+        role: "Mentor",
+        direction: "west",
+      },
+      {
+        totem: "Bubble Spider",
+        name: "Nakoa",
+        role: "Drug merchant",
+        direction: "west",
+      },
+      {
+        totem: "Bunyip",
+        name: "Opunui",
+        role: "Historian",
+        direction: "west",
+      },
+      {
+        totem: "Cod",
+        name: "Two Eyes Beneath the Surface",
+        role: "Butcher",
+        direction: "west",
+      },
+      {
+        totem: "Coelecanth",
+        name: "Ancient Fins",
+        role: "Manse Repair",
+        direction: "west",
+      },
+      {
+        totem: "Cuttlefish",
+        name: "Song of Rainbows",
+        role: "Pearl Diver",
+        direction: "west",
+      },
+      {
+        totem: "Didymoceras",
+        name: "Sinalei",
+        role: "Chef",
+        direction: "west",
+      },
+      {
+        totem: "Dimorphodon",
+        name: "Storm of Teeth",
+        role: "Berserker",
+        direction: "west",
+      },
+      { totem: "Dodo", name: "Ta'ini", role: "Healer", direction: "west" },
+      { totem: "Dolphin", name: "Afa", role: "Actor", direction: "west" },
+      {
+        totem: "Dumbo Octopus",
+        name: "Swirl of Bubbles",
+        role: "Bureaucrat",
+        direction: "west",
+      },
+      {
+        totem: "Dunkleosteous",
+        name: "Paikia",
+        role: "Lieutenant",
+        direction: "west",
+      },
+      {
+        totem: "Fiddler Crab",
+        name: "Calls to Death",
+        role: "Soldier",
+        direction: "west",
+      },
+      {
+        totem: "Flying Fish",
+        name: "Tiaho of the Silver Fins",
+        role: "Scout",
+        direction: "west",
+      },
+      {
+        totem: "Frilled Shark",
+        name: "Anewa Full of Teeth",
+        role: "Exorcist",
+        direction: "west",
+      },
+      {
+        totem: "Frogfish",
+        name: "U'ilani",
+        role: "Librarian",
+        direction: "west",
+      },
+      {
+        totem: "Giant Clam",
+        name: "String of Pearls",
+        role: "Geomancer",
+        direction: "west",
+      },
+      {
+        totem: "Giant Isopod",
+        name: "Belly of Scraps",
+        role: "Brawler",
+        direction: "west",
+      },
+      {
+        totem: "Giant Sunfish",
+        name: "Vairea",
+        role: "Slaver",
+        direction: "west",
+      },
+      {
+        totem: "Giant Turtle",
+        name: "Carries the World",
+        role: "Functionary",
+        direction: "west",
+      },
+      {
+        totem: "Goblin Shark",
+        name: "Lehiwa",
+        role: "Priest",
+        direction: "west",
+      },
+      {
+        totem: "Great White Shark",
+        name: "The Grinder",
+        role: "Monster",
+        direction: "west",
+      },
+      {
+        totem: "Hammerhead Shark",
+        name: "Ratopama",
+        role: "Socialte",
+        direction: "west",
+      },
+      {
+        totem: "Hermit Crab",
+        name: "Lord Kelala",
+        role: "Inspector",
+        direction: "west",
+      },
+      {
+        totem: "Hippocampus",
+        name: "Seamane",
+        role: "Blacksmith",
+        direction: "west",
+      },
+      {
+        totem: "Humboldt Squid",
+        name: "Hunts With Friends",
+        role: "Demon-hunter",
+        direction: "west",
+      },
+      {
+        totem: "Ichthyosaur",
+        name: "Mambovipi",
+        role: "Inquisitor",
+        direction: "west",
+      },
+      {
+        totem: "Kelpie",
+        name: "Heavenly Flower",
+        role: "Healer",
+        direction: "west",
+      },
+      {
+        totem: "Kraken",
+        name: "Empress Hala",
+        role: "Empress",
+        direction: "west",
+      },
+      {
+        totem: "Lamprey",
+        name: "Big Rento",
+        role: "Hypnotist",
+        direction: "west",
+      },
+      {
+        totem: "Lionfish",
+        name: "Beautiful End",
+        role: "Mastermind",
+        direction: "west",
+      },
+      {
+        totem: "Lobster",
+        name: "Anoka'a",
+        role: "Translator",
+        direction: "west",
+      },
+      {
+        totem: "Man-o-war",
+        name: "Touches the Foam",
+        role: "Archaeologist",
+        direction: "west",
+      },
+      {
+        totem: "Manatee",
+        name: "Poa Ka'chizi",
+        role: "Navigator",
+        direction: "west",
+      },
+      { totem: "Manta", name: "Apoa", role: "Musician", direction: "west" },
+      {
+        totem: "Mantis Shrimp",
+        name: "Tekapoka",
+        role: "Assassin",
+        direction: "west",
+      },
+      {
+        totem: "Meekoceras",
+        name: "Kalulana",
+        role: "Farmer",
+        direction: "west",
+      },
+      {
+        totem: "Megalodon",
+        name: "A'akahoa",
+        role: "Orator",
+        direction: "west",
+      },
+      { totem: "Moa", name: "Ruru", role: "Watchman", direction: "west" },
+      {
+        totem: "Moon Jelly",
+        name: "Irony",
+        role: "Treasure Hunter",
+        direction: "west",
+      },
+      {
+        totem: "Mosasaurus",
+        name: "Kaurar",
+        role: "Nobleman",
+        direction: "west",
+      },
+      {
+        totem: "Narwhal",
+        name: "Spears the Sky",
+        role: "Athlete",
+        direction: "west",
+      },
+      {
+        totem: "Nudibranch",
+        name: "Unknown Stance",
+        role: "Philosopher",
+        direction: "west",
+      },
+      {
+        totem: "Nurse Shark",
+        name: "Alapateka",
+        role: "Shipwright",
+        direction: "west",
+      },
+      {
+        totem: "Octopus",
+        name: "Meto Quick-hand",
+        role: "Lawman",
+        direction: "west",
+      },
+      {
+        totem: "Orca",
+        name: "Waits Under Ice",
+        role: "Drunken Master",
+        direction: "west",
+      },
+      {
+        totem: "Parrotfish",
+        name: "Slow Tooth Wins",
+        role: "Bodyguard",
+        direction: "west",
+      },
+      {
+        totem: "Pelican",
+        name: "Homniwaze",
+        role: "Messenger",
+        direction: "west",
+      },
+      {
+        totem: "Plesiosaur",
+        name: "Kama Longneck",
+        role: "Herbalist",
+        direction: "west",
+      },
+      {
+        totem: "Pufferfish",
+        name: "Peruka",
+        role: "Pickpocket",
+        direction: "west",
+      },
+      {
+        totem: "Quetzalcoatlus",
+        name: "Claws Lock Deep",
+        role: "Berserker",
+        direction: "west",
+      },
+      {
+        totem: "Ribbon Eel",
+        name: "Jade Cord",
+        role: "Archer",
+        direction: "west",
+      },
+      { totem: "Sawfish", name: "Opeka", role: "Sailor", direction: "west" },
+      { totem: "Sea Cucumber", name: "Amoe", role: "Spy", direction: "west" },
+      { totem: "Sea Elk", name: "Homeless", role: "Poet", direction: "west" },
+      {
+        totem: "Sea Serpent",
+        name: "No Good Ending",
+        role: "Plaguebringer",
+        direction: "west",
+      },
+      {
+        totem: "Sea Turtle",
+        name: "Ruiha",
+        role: "Shock troop",
+        direction: "west",
+      },
+      {
+        totem: "Seadragon",
+        name: "Clever Weed",
+        role: "Dancer",
+        direction: "west",
+      },
+      {
+        totem: "Seahorse",
+        name: "Caretaker",
+        role: "Surgeon",
+        direction: "west",
+      },
+      {
+        totem: "Sperm Whale",
+        name: "Fathom",
+        role: "Explorer",
+        direction: "west",
+      },
+      {
+        totem: "Spider Crab",
+        name: "Light As Air",
+        role: "Martial Artist",
+        direction: "west",
+      },
+      {
+        totem: "Squid",
+        name: "Po'ato",
+        role: "Spear-fisher",
+        direction: "west",
+      },
+      {
+        totem: "Starfish",
+        name: "Uyulala",
+        role: "Boxer",
+        direction: "west",
+      },
+      {
+        totem: "Sting Ray",
+        name: "Carves the Waves",
+        role: "Silversmith",
+        direction: "west",
+      },
+      {
+        totem: "Swordfish",
+        name: "Waimari'e",
+        role: "Hunter",
+        direction: "west",
+      },
+      {
+        totem: "Tiger Shark",
+        name: "Sword of Coral",
+        role: "Warleader",
+        direction: "west",
+      },
+      {
+        totem: "Trilobite",
+        name: "Poa Unchanging",
+        role: "Wyld Sage",
+        direction: "west",
+      },
+      {
+        totem: "Urchin",
+        name: "Final Meal",
+        role: "Food-taster",
+        direction: "west",
+      },
+      {
+        totem: "Whaleshark",
+        name: "Deep Found Fate",
+        role: "Sensei",
+        direction: "west",
+      },
+      {
+        totem: "Whorl Shark",
+        name: "Unending Wave",
+        role: "Assassin",
+        direction: "west",
+      },
+      { totem: "Yeti Crab", name: "Yaxa", role: "Tailor", direction: "west" },
+      {
+        totem: "Zebrafish",
+        name: "Seeks the Gates",
+        role: "Sorcerer",
+        direction: "west",
+      },
+      {
+        totem: "Alpaca",
+        name: "Redia Selis",
+        role: "Explorer",
+        direction: "center",
+      },
+      {
+        totem: "Axolotl",
+        name: "Deso T'e",
+        role: "Teacher",
+        direction: "center",
+      },
+      {
+        totem: "Betta",
+        name: "Cuchpo Yu",
+        role: "Orator",
+        direction: "center",
+      },
+      {
+        totem: "Bluejay",
+        name: "Graceful Rain",
+        role: "Dancer",
+        direction: "center",
+      },
+      {
+        totem: "Box Turtle",
+        name: "Vetra Galun",
+        role: "Manse Repair",
+        direction: "center",
+      },
+      {
+        totem: "Butterfly",
+        name: "Cynis Willow",
+        role: "Archaeologist",
+        direction: "center",
+      },
+      {
+        totem: "Carp",
+        name: "Ko Lang",
+        role: "Bureaucrat",
+        direction: "center",
+      },
+      {
+        totem: "Centipede",
+        name: "Climbs the Navel",
+        role: "Treasure Hunter",
+        direction: "center",
+      },
+      {
+        totem: "Chicken",
+        name: "Beng Utto",
+        role: "Butcher",
+        direction: "center",
+      },
+      {
+        totem: "Chinchilla",
+        name: "Venn Vela",
+        role: "Messenger",
+        direction: "center",
+      },
+      {
+        totem: "Cockroach",
+        name: "Friend to Vermin",
+        role: "Food-taster",
+        direction: "center",
+      },
+      {
+        totem: "Cow",
+        name: "Ree Dios",
+        role: "Pickpocket",
+        direction: "center",
+      },
+      {
+        totem: "Crane",
+        name: "Ledaal Reshi",
+        role: "Musician",
+        direction: "center",
+      },
+      {
+        totem: "Crayfish",
+        name: "Abida Genna",
+        role: "Hunter",
+        direction: "center",
+      },
+      {
+        totem: "Crow",
+        name: "Sweet Talker",
+        role: "Collector",
+        direction: "center",
+      },
+      { totem: "Donkey", name: "Khar", role: "Poetry", direction: "center" },
+      {
+        totem: "Dove",
+        name: "Sakar Pekea",
+        role: "Swordsman",
+        direction: "center",
+      },
+      {
+        totem: "Draft Horse",
+        name: "Gurak Big-Heart",
+        role: "Soldier",
+        direction: "center",
+      },
+      {
+        totem: "Duck",
+        name: "Canos Ento",
+        role: "Chef",
+        direction: "center",
+      },
+      {
+        totem: "Earthworm",
+        name: "Vedt Dura",
+        role: "Sorcerer",
+        direction: "center",
+      },
+      {
+        totem: "Egret",
+        name: "V'neef Isolt",
+        role: "Inspector",
+        direction: "center",
+      },
+      {
+        totem: "Enfield",
+        name: "Sekar Jukka",
+        role: "Engraver",
+        direction: "center",
+      },
+      {
+        totem: "Ferret",
+        name: "Cathak Roman",
+        role: "Ringmaster",
+        direction: "center",
+      },
+      {
+        totem: "Flying Snake",
+        name: "D'ast Alena",
+        role: "Navigator",
+        direction: "center",
+      },
+      {
+        totem: "Fox",
+        name: "Wen Golonn",
+        role: "Inquisitor",
+        direction: "center",
+      },
+      {
+        totem: "Garden Slug",
+        name: "Mighty Glacier",
+        role: "Functionary",
+        direction: "center",
+      },
+      {
+        totem: "Genet",
+        name: "Sonor Lena",
+        role: "Thief",
+        direction: "center",
+      },
+      {
+        totem: "Gerbil",
+        name: "Kuto Pari",
+        role: "Landowner",
+        direction: "center",
+      },
+      {
+        totem: "Giant Land Snail",
+        name: "Bettu Bel'a",
+        role: "Architect",
+        direction: "center",
+      },
+      {
+        totem: "Goat",
+        name: "Clearest Bell",
+        role: "Musician",
+        direction: "center",
+      },
+      {
+        totem: "Goose",
+        name: "Uomo Qun",
+        role: "Silversmith",
+        direction: "center",
+      },
+      {
+        totem: "Grasshopper",
+        name: "Peng",
+        role: "Socialite",
+        direction: "center",
+      },
+      {
+        totem: "Guinea Pig",
+        name: "Apat Xian ",
+        role: "Functionary",
+        direction: "center",
+      },
+      {
+        totem: "Hamster",
+        name: "Ektor Koa",
+        role: "Lieutenant",
+        direction: "center",
+      },
+      {
+        totem: "Hedgehog",
+        name: "Ragara Ulen",
+        role: "Historian",
+        direction: "center",
+      },
+      {
+        totem: "Honey Bee",
+        name: "Purest Salve",
+        role: "Exorcist",
+        direction: "center",
+      },
+      {
+        totem: "Housecat",
+        name: "Gelok Long-limb",
+        role: "Athlete",
+        direction: "center",
+      },
+      {
+        totem: "Hummingbird",
+        name: "Iselsi Deran",
+        role: "Poet",
+        direction: "center",
+      },
+      {
+        totem: "Hunting Dog",
+        name: "Fotor Vekli",
+        role: "Sycophant",
+        direction: "center",
+      },
+      {
+        totem: "Katydid",
+        name: "Indir Son",
+        role: "Surgeon",
+        direction: "center",
+      },
+      {
+        totem: "Ladybug",
+        name: "Tepet Qualia",
+        role: "Traveler",
+        direction: "center",
+      },
+      {
+        totem: "Lap Dog",
+        name: "Ren Ito",
+        role: "Immaculate Priest",
+        direction: "center",
+      },
+      {
+        totem: "Llama",
+        name: "Woonsen Veng",
+        role: "Merchant",
+        direction: "center",
+      },
+      {
+        totem: "Locust",
+        name: "Kadar Tektor",
+        role: "Nobleman",
+        direction: "center",
+      },
+      {
+        totem: "Luna Moth",
+        name: "Night's Pearl",
+        role: "Hypnotist",
+        direction: "center",
+      },
+      {
+        totem: "Margay",
+        name: "Polt Bisha",
+        role: "Captain",
+        direction: "center",
+      },
+      {
+        totem: "Mole",
+        name: "Zuzu Amon",
+        role: "Vigilante",
+        direction: "center",
+      },
+      {
+        totem: "Mouse",
+        name: "Roshan Pteria",
+        role: "Sailor",
+        direction: "center",
+      },
+      {
+        totem: "Nightingale",
+        name: "Seles Meng",
+        role: "Philosopher",
+        direction: "center",
+      },
+      {
+        totem: "Nine-Headed Crane",
+        name: "Heng Oda",
+        role: "Actor",
+        direction: "center",
+      },
+      {
+        totem: "Orb Spider",
+        name: "Grandmother",
+        role: "Spymaster",
+        direction: "center",
+      },
+      {
+        totem: "Osprey",
+        name: "Shin Wen",
+        role: "Scout",
+        direction: "center",
+      },
+      {
+        totem: "Pheasant",
+        name: "Soma Buret",
+        role: "Tailor",
+        direction: "center",
+      },
+      {
+        totem: "Pig",
+        name: "Garoch Osar",
+        role: "Shipwright",
+        direction: "center",
+      },
+      {
+        totem: "Pixiu",
+        name: "Yidan Berit",
+        role: "Guardian",
+        direction: "center",
+      },
+      {
+        totem: "Prawn",
+        name: "Peleps Olivna",
+        role: "Seaweed Farmer",
+        direction: "center",
+      },
+      {
+        totem: "Praying Mantis",
+        name: "Phong Irnie",
+        role: "Cook",
+        direction: "center",
+      },
+      {
+        totem: "Rabbit",
+        name: "Qin Glasii",
+        role: "Demon-hunter",
+        direction: "center",
+      },
+      {
+        totem: "Rat",
+        name: "Mangakmaga",
+        role: "Scholar",
+        direction: "center",
+      },
+      {
+        totem: "Red-Tailed Hawk",
+        name: "Odenu Sen",
+        role: "Archer",
+        direction: "center",
+      },
+      {
+        totem: "Ribbon Snake",
+        name: "Xu Aamar",
+        role: "Gardening",
+        direction: "center",
+      },
+      {
+        totem: "Salamander",
+        name: "Len Dolot",
+        role: "Fisher",
+        direction: "center",
+      },
+      {
+        totem: "Sandpiper",
+        name: "Third Shift Xie",
+        role: "Smuggler",
+        direction: "center",
+      },
+      {
+        totem: "Seagull",
+        name: "Vydar Eneda",
+        role: "Watchman",
+        direction: "center",
+      },
+      {
+        totem: "Serval",
+        name: "Letar Van",
+        role: "Blacksmith",
+        direction: "center",
+      },
+      {
+        totem: "Sheep",
+        name: "Redat Kont",
+        role: "Herald",
+        direction: "center",
+      },
+      {
+        totem: "Shrew",
+        name: "Padel Yutor",
+        role: "Brawler",
+        direction: "center",
+      },
+      {
+        totem: "Silkworm",
+        name: "Sesus Fennik",
+        role: "Librarian",
+        direction: "center",
+      },
+      {
+        totem: "Snapping Turtle",
+        name: "Hates Everyone",
+        role: "Hermit",
+        direction: "center",
+      },
+      {
+        totem: "Squirrel",
+        name: "Gilahari",
+        role: "Spy Master",
+        direction: "center",
+      },
+      {
+        totem: "Star-Nosed Mole",
+        name: "Finds Jade",
+        role: "Miner",
+        direction: "center",
+      },
+      {
+        totem: "Stick Bug",
+        name: "Nellens Coran",
+        role: "Assassin",
+        direction: "center",
+      },
+      {
+        totem: "Stinkbug",
+        name: "Volok Etra",
+        role: "Explosives",
+        direction: "center",
+      },
+      {
+        totem: "Swan",
+        name: "Sigrid",
+        role: "Double Agent",
+        direction: "center",
+      },
+      {
+        totem: "Toad",
+        name: "Mnemon Odal",
+        role: "Potionmaker",
+        direction: "center",
+      },
+      {
+        totem: "Turkey",
+        name: "Chenna Dulet",
+        role: "Bartender",
+        direction: "center",
+      },
+      {
+        totem: "Water Strider",
+        name: "Jorun Kalec",
+        role: "Puppetmaster",
+        direction: "center",
+      },
+      {
+        totem: "Xiezhi",
+        name: "Talgraa Pi ",
+        role: "Immaculate Monk",
+        direction: "center",
+      },
+      {
+        totem: "Yak",
+        name: "Shal Maga",
+        role: "Bodyguard",
+        direction: "center",
+      },
+      {
+        totem: "Yeddim",
+        name: "Sky Rains Silver",
+        role: "Healer",
+        direction: "center",
+      },
+    ];
 
-{"totem": "Anaconda", "name": "Wilan Raincatcher", "role": "Dancer", "direction": "east"},
-{"totem": "Aurochs", "name": "Dagowyndra Crownmaker", "role": "Bureaucrat", "direction": "east"},
-{"totem": "Aye-Aye", "name": "Itzocoatl Quick-eyes", "role": "Explorer", "direction": "east"},
-{"totem": "Banana Spider", "name": "Danebits Manyeyes", "role": "Assassin", "direction": "east"},
-{"totem": "Bird of Paradise", "name": "Sayachec Skylord", "role": "Archer", "direction": "east"},
-{"totem": "Black Bear", "name": "Corace Fisher", "role": "Poet", "direction": "east"},
-{"totem": "Boar", "name": "Finlot Death-of-peace", "role": "Berserker", "direction": "east"},
-{"totem": "Bobcat", "name": "Belit Warmaker", "role": "Watchman", "direction": "east"},
-{"totem": "Brown Bat", "name": "Carthia Flowernose", "role": "Musician", "direction": "east"},
-{"totem": "Catfish", "name": "Timot Riverlord", "role": "Captain", "direction": "east"},
-{"totem": "Coati", "name": "Tuxqui Giftmaker", "role": "Thief", "direction": "east"},
-{"totem": "Coyote", "name": "Saffron Ridgewalker", "role": "Tracking", "direction": "east"},
-{"totem": "Deer", "name": "Seria the Provider", "role": "Socialite", "direction": "east"},
-{"totem": "Dimetrodon", "name": "Chaneil Cloakmaker", "role": "Sorcerer", "direction": "east"},
-{"totem": "Doedicurus", "name": "Celetony Landking", "role": "Tailor", "direction": "east"},
-{"totem": "Dragon-Ox", "name": "Keloch Joygiver", "role": "Drug merchant", "direction": "east"},
-{"totem": "Dragonfly", "name": "Cinnamon Prosperous", "role": "Surgeon", "direction": "east"},
-{"totem": "Echidna", "name": "Itlcan the Tyrant", "role": "Nobleman", "direction": "east"},
-{"totem": "Electric Eel", "name": "Ayver, Duke of the Moon", "role": "Demon-hunter", "direction": "east"},
-{"totem": "Flying Fox", "name": "One Bright Eye", "role": "Necromancer", "direction": "east"},
-{"totem": "Flying Squirrel", "name": "Coriander Manytongues", "role": "Actor", "direction": "east"},
-{"totem": "Fossa", "name": "Skalnia Shiningeyes", "role": "Soldier", "direction": "east"},
-{"totem": "Funnel Spider", "name": "Citalmina Wakener", "role": "Archaeologist", "direction": "east"},
-{"totem": "Gar", "name": "Jenala Shieldbearer", "role": "Bodyguard", "direction": "east"},
-{"totem": "Gigantopithecus", "name": "Gorgam Strongfist", "role": "Blacksmith", "direction": "east"},
-{"totem": "Goliath Beetle", "name": "Uam Benediction", "role": "Slaver", "direction": "east"},
-{"totem": "Gorilla", "name": "Roshet Glorymind", "role": "Sorcerer", "direction": "east"},
-{"totem": "Great Blue Heron", "name": "Ozlamatec Skygem", "role": "Hunter", "direction": "east"},
-{"totem": "Ground Bee", "name": "Ore of Autumn", "role": "Geomancer", "direction": "east"},
-{"totem": "Haast's Eagle", "name": "Utan Jadestar", "role": "Chimera", "direction": "east"},
-{"totem": "Honey Badger", "name": "Invicta the Uncaring", "role": "Exorcist", "direction": "east"},
-{"totem": "Hummingbird Hawk-Moth", "name": "Beryl Vaultmaster", "role": "Architect", "direction": "east"},
-{"totem": "Kirin", "name": "Bismo Life's Canvas", "role": "Hypnotist", "direction": "east"},
-{"totem": "Kiwi", "name": "Jenaley Swiftmind", "role": "Silversmith", "direction": "east"},
-{"totem": "Koala", "name": "Biran Strongwill", "role": "Martial Artist", "direction": "east"},
-{"totem": "Lemur", "name": "Ragna the Delicate", "role": "Shipwright", "direction": "east"},
-{"totem": "Macaque", "name": "Clove Longhand", "role": "Lawman", "direction": "east"},
-{"totem": "Mara", "name": "Mikal Secret-keeper", "role": "Inquisitor", "direction": "east"},
-{"totem": "Marten", "name": "Chennai Sharpnose", "role": "Explorer", "direction": "east"},
-{"totem": "Milipede", "name": "Retta Laststanding", "role": "Lieutenant", "direction": "east"},
-{"totem": "Mockingbird", "name": "Sayaxaman Oakenhome", "role": "Manse Repair", "direction": "east"},
-{"totem": "Mospid", "name": "Mazakin Longknife", "role": "Butcher", "direction": "east"},
-{"totem": "Mosquito", "name": "Aksun Blightcarver", "role": "Archer", "direction": "east"},
-{"totem": "Nutria", "name": "Alaley Childwatch", "role": "Sensei", "direction": "east"},
-{"totem": "Orangutan", "name": "Shar Strongarm", "role": "Boxer", "direction": "east"},
-{"totem": "Ox", "name": "Lyrah Heartstopper", "role": "Healer", "direction": "east"},
-{"totem": "Panda", "name": "Colgrimm Slow-to-fail", "role": "Drunken Master", "direction": "east"},
-{"totem": "Panda Ant", "name": "Sayden the Incorruptible", "role": "Food-taster", "direction": "east"},
-{"totem": "Panther", "name": "Merjoa the Brave", "role": "Scout", "direction": "east"},
-{"totem": "Parrot", "name": "Tyris the Aged", "role": "Historian", "direction": "east"},
-{"totem": "Peryton", "name": "Yaohuitli the Faceless", "role": "Mastermind", "direction": "east"},
-{"totem": "Pestletail", "name": "Janna Hatmaker", "role": "Merchant", "direction": "east"},
-{"totem": "Platypus", "name": "Cotton Spiritsinger", "role": "Philosopher", "direction": "east"},
-{"totem": "Poodle Moth", "name": "Burra Lightmind", "role": "Librarian", "direction": "east"},
-{"totem": "Porcupine", "name": "Flora Spearmaker", "role": "Shock troop", "direction": "east"},
-{"totem": "Possum", "name": "Utlu Treekeeper", "role": "Herbalist", "direction": "east"},
-{"totem": "Raccoon", "name": "Paksara the Clever", "role": "Chef", "direction": "east"},
-{"totem": "Rattlesnake", "name": "Incense Sorrowbane", "role": "Potionmaker", "direction": "east"},
-{"totem": "River Dragon", "name": "Marinaria Bonesplitter", "role": "Spearmaiden", "direction": "east"},
-{"totem": "River Eel", "name": "Leoz of the Oasis", "role": "Navigator", "direction": "east"},
-{"totem": "River Otter", "name": "Khavyn Shrinebane", "role": "Inspector", "direction": "east"},
-{"totem": "Salmon", "name": "Lella Starhand", "role": "Horse-Archer", "direction": "east"},
-{"totem": "Skunk", "name": "Reclusive Jade", "role": "Spy", "direction": "east"},
-{"totem": "Sloth", "name": "Joia Doubledraught", "role": "Teacher", "direction": "east"},
-{"totem": "Snipe", "name": "Xeidi the Unfindable", "role": "Messenger", "direction": "east"},
-{"totem": "Strangler Lizard", "name": "Damia Nightwalker", "role": "Spy", "direction": "east"},
-{"totem": "Sunda Colugo", "name": "Blackpepper", "role": "Plaguebringer", "direction": "east"},
-{"totem": "Tenrec", "name": "Comitlatl Plowwoman", "role": "Farmer", "direction": "east"},
-{"totem": "Terror Bird", "name": "Tottan Lifestalker", "role": "Assassin", "direction": "east"},
-{"totem": "Thylacine", "name": "Hefana Longstride", "role": "Swordsman", "direction": "east"},
-{"totem": "Tick", "name": "Ptazpali Sidewise", "role": "Pickpocket", "direction": "east"},
-{"totem": "Titanoboa", "name": "The Nameless One", "role": "Priest", "direction": "east"},
-{"totem": "Tree Frog", "name": "Alathur Smoothtongue", "role": "Functionary", "direction": "east"},
-{"totem": "Trout", "name": "Olive Boarbreaker", "role": "Brawler", "direction": "east"},
-{"totem": "Tufted Deer", "name": "Topaz, Queen of Winter", "role": "Warleader", "direction": "east"},
-{"totem": "Tyrant Lizard", "name": "Thriel Greatvoice", "role": "Orator", "direction": "east"},
-{"totem": "Uakari", "name": "Palmoil the Secret", "role": "Wyld Sage", "direction": "east"},
-{"totem": "Water Moccasin", "name": "Taransek the Silent", "role": "Translator", "direction": "east"},
-{"totem": "Wolpertinger", "name": "Wyndod Pistonleg", "role": "Athlete", "direction": "east"},
-{"totem": "Woodpecker", "name": "Cetor Harvester", "role": "Treasure Hunter", "direction": "east"},
+    function formatRow(row, rownumber) {
+      if (rownumber % 2 == 1) {
+        return (
+          "<tr class='deleteable'><td>" +
+          row.name +
+          "</td><td>" +
+          row.totem +
+          "</td><td>" +
+          row.role +
+          "</td></tr>"
+        );
+      } else {
+        return (
+          "<tr class='deleteable everyother'><td>" +
+          row.name +
+          "</td><td>" +
+          row.totem +
+          "</td><td>" +
+          row.role +
+          "</td></tr>"
+        );
+      }
+    }
 
-{"totem": "Abalone", "name": "Hanalei", "role": "Architect", "direction": "west"},
-{"totem": "Ahuizotl", "name": "Inina", "role": "Potionmaker", "direction": "west"},
-{"totem": "Ammonite", "name": "Endless Swirls", "role": "Spearmaiden", "direction": "west"},
-{"totem": "Anemone", "name": "Kaile'a", "role": "Captain", "direction": "west"},
-{"totem": "Anglerfish", "name": "Light in the Darkness", "role": "Healer", "direction": "west"},
-{"totem": "Asterolepis", "name": "Lawai'a", "role": "Merchant", "direction": "west"},
-{"totem": "Batfish", "name": "Flies Through Water", "role": "Explorer", "direction": "west"},
-{"totem": "Blue Whale", "name": "Mahina of the Deeps", "role": "Vigilante", "direction": "west"},
-{"totem": "Bobtail Squid", "name": "Ten-Touch Tenoch", "role": "Mentor", "direction": "west"},
-{"totem": "Bubble Spider", "name": "Nakoa", "role": "Drug merchant", "direction": "west"},
-{"totem": "Bunyip", "name": "Opunui", "role": "Historian", "direction": "west"},
-{"totem": "Cod", "name": "Two Eyes Beneath the Surface", "role": "Butcher", "direction": "west"},
-{"totem": "Coelecanth", "name": "Ancient Fins", "role": "Manse Repair", "direction": "west"},
-{"totem": "Cuttlefish", "name": "Song of Rainbows", "role": "Pearl Diver", "direction": "west"},
-{"totem": "Didymoceras", "name": "Sinalei", "role": "Chef", "direction": "west"},
-{"totem": "Dimorphodon", "name": "Storm of Teeth", "role": "Berserker", "direction": "west"},
-{"totem": "Dodo", "name": "Ta'ini", "role": "Healer", "direction": "west"},
-{"totem": "Dolphin", "name": "Afa", "role": "Actor", "direction": "west"},
-{"totem": "Dumbo Octopus", "name": "Swirl of Bubbles", "role": "Bureaucrat", "direction": "west"},
-{"totem": "Dunkleosteous", "name": "Paikia", "role": "Lieutenant", "direction": "west"},
-{"totem": "Fiddler Crab", "name": "Calls to Death", "role": "Soldier", "direction": "west"},
-{"totem": "Flying Fish", "name": "Tiaho of the Silver Fins", "role": "Scout", "direction": "west"},
-{"totem": "Frilled Shark", "name": "Anewa Full of Teeth", "role": "Exorcist", "direction": "west"},
-{"totem": "Frogfish", "name": "U'ilani", "role": "Librarian", "direction": "west"},
-{"totem": "Giant Clam", "name": "String of Pearls", "role": "Geomancer", "direction": "west"},
-{"totem": "Giant Isopod", "name": "Belly of Scraps", "role": "Brawler", "direction": "west"},
-{"totem": "Giant Sunfish", "name": "Vairea", "role": "Slaver", "direction": "west"},
-{"totem": "Giant Turtle", "name": "Carries the World", "role": "Functionary", "direction": "west"},
-{"totem": "Goblin Shark", "name": "Lehiwa", "role": "Priest", "direction": "west"},
-{"totem": "Great White Shark", "name": "The Grinder", "role": "Chimera", "direction": "west"},
-{"totem": "Hammerhead Shark", "name": "Ratopama", "role": "Socialte", "direction": "west"},
-{"totem": "Hermit Crab", "name": "Lord Kelala", "role": "Inspector", "direction": "west"},
-{"totem": "Hippocampus", "name": "Seamane", "role": "Blacksmith", "direction": "west"},
-{"totem": "Humboldt Squid", "name": "Hunts With Friends", "role": "Demon-hunter", "direction": "west"},
-{"totem": "Ichthyosaur", "name": "Mambovipi", "role": "Inquisitor", "direction": "west"},
-{"totem": "Kelpie", "name": "Heavenly Flower", "role": "Healer", "direction": "west"},
-{"totem": "Kraken", "name": "Empress Hala", "role": "Empress", "direction": "west"},
-{"totem": "Lamprey", "name": "Big Rento", "role": "Hypnotist", "direction": "west"},
-{"totem": "Lionfish", "name": "Beautiful End", "role": "Mastermind", "direction": "west"},
-{"totem": "Lobster", "name": "Anoka'a", "role": "Translator", "direction": "west"},
-{"totem": "Man-o-war", "name": "Touches the Foam", "role": "Archaeologist", "direction": "west"},
-{"totem": "Manatee", "name": "Poa Ka'chizi", "role": "Navigator", "direction": "west"},
-{"totem": "Manta", "name": "Apoa", "role": "Musician", "direction": "west"},
-{"totem": "Mantis Shrimp", "name": "Tekapoka", "role": "Assassin", "direction": "west"},
-{"totem": "Meekoceras", "name": "Kalulana", "role": "Farmer", "direction": "west"},
-{"totem": "Megalodon", "name": "A'akahoa", "role": "Orator", "direction": "west"},
-{"totem": "Moa", "name": "Ruru", "role": "Watchman", "direction": "west"},
-{"totem": "Moon Jelly", "name": "Irony", "role": "Treasure Hunter", "direction": "west"},
-{"totem": "Mosasaurus", "name": "Kaurar", "role": "Nobleman", "direction": "west"},
-{"totem": "Narwhal", "name": "Spears the Sky", "role": "Athlete", "direction": "west"},
-{"totem": "Nudibranch", "name": "Unknown Stance", "role": "Philosopher", "direction": "west"},
-{"totem": "Nurse Shark", "name": "Alapateka", "role": "Shipwright", "direction": "west"},
-{"totem": "Octopus", "name": "Meto Quick-hand", "role": "Lawman", "direction": "west"},
-{"totem": "Orca", "name": "Waits Under Ice", "role": "Drunken Master", "direction": "west"},
-{"totem": "Parrotfish", "name": "Slow Tooth Wins", "role": "Bodyguard", "direction": "west"},
-{"totem": "Pelican", "name": "Homniwaze", "role": "Messenger", "direction": "west"},
-{"totem": "Plesiosaur", "name": "Kama Longneck", "role": "Herbalist", "direction": "west"},
-{"totem": "Pufferfish", "name": "Peruka", "role": "Pickpocket", "direction": "west"},
-{"totem": "Quetzalcoatlus", "name": "Claws Lock Deep", "role": "Berserker", "direction": "west"},
-{"totem": "Ribbon Eel", "name": "Jade Cord", "role": "Archer", "direction": "west"},
-{"totem": "Sawfish", "name": "Opeka", "role": "Sailor", "direction": "west"},
-{"totem": "Sea Cucumber", "name": "Amoe", "role": "Spy", "direction": "west"},
-{"totem": "Sea Elk", "name": "Homeless", "role": "Poet", "direction": "west"},
-{"totem": "Sea Serpent", "name": "No Good Ending", "role": "Plaguebringer", "direction": "west"},
-{"totem": "Sea Turtle", "name": "Ruiha", "role": "Shock troop", "direction": "west"},
-{"totem": "Seadragon", "name": "Clever Weed", "role": "Dancer", "direction": "west"},
-{"totem": "Seahorse", "name": "Caretaker", "role": "Surgeon", "direction": "west"},
-{"totem": "Sperm Whale", "name": "Fathom", "role": "Explorer", "direction": "west"},
-{"totem": "Spider Crab", "name": "Light As Air", "role": "Martial Artist", "direction": "west"},
-{"totem": "Squid", "name": "Po'ato", "role": "Spear-fisher", "direction": "west"},
-{"totem": "Starfish", "name": "Uyulala", "role": "Boxer", "direction": "west"},
-{"totem": "Sting Ray", "name": "Carves the Waves", "role": "Silversmith", "direction": "west"},
-{"totem": "Swordfish", "name": "Waimari'e", "role": "Hunter", "direction": "west"},
-{"totem": "Tiger Shark", "name": "Sword of Coral", "role": "Warleader", "direction": "west"},
-{"totem": "Trilobite", "name": "Poa Unchanging", "role": "Wyld Sage", "direction": "west"},
-{"totem": "Urchin", "name": "Final Meal", "role": "Food-taster", "direction": "west"},
-{"totem": "Whaleshark", "name": "Deep Found Fate", "role": "Sensei", "direction": "west"},
-{"totem": "Whorl Shark", "name": "Unending Wave", "role": "Assassin", "direction": "west"},
-{"totem": "Yeti Crab", "name": "Yaxa", "role": "Tailor", "direction": "west"},
-{"totem": "Zebrafish", "name": "Seeks the Gates", "role": "Sorcerer", "direction": "west"},
+    function getRows(number, direction) {
+      var lunarsInDirection = [];
+      var myLunars = [];
+      var newLunarHTML = "";
+      var thisLunar = 0;
 
-{"totem": "Alpaca", "name": "Redia Selis", "role": "Explorer", "direction": "center"},
-{"totem": "Axolotl", "name": "Deso T'e", "role": "Teacher", "direction": "center"},
-{"totem": "Betta", "name": "Cuchpo Yu", "role": "Orator", "direction": "center"},
-{"totem": "Bluejay", "name": "Graceful Rain", "role": "Dancer", "direction": "center"},
-{"totem": "Box Turtle", "name": "Vetra Galun", "role": "Manse Repair", "direction": "center"},
-{"totem": "Butterfly", "name": "Cynis Willow", "role": "Archaeologist", "direction": "center"},
-{"totem": "Carp", "name": "Ko Lang", "role": "Bureaucrat", "direction": "center"},
-{"totem": "Centipede", "name": "Climbs the Navel", "role": "Treasure Hunter", "direction": "center"},
-{"totem": "Chicken", "name": "Beng Utto", "role": "Butcher", "direction": "center"},
-{"totem": "Chinchilla", "name": "Venn Vela", "role": "Messenger", "direction": "center"},
-{"totem": "Cockroach", "name": "Friend to Vermin", "role": "Food-taster", "direction": "center"},
-{"totem": "Cow", "name": "Ree Dios", "role": "Pickpocket", "direction": "center"},
-{"totem": "Crane", "name": "Ledaal Reshi", "role": "Musician", "direction": "center"},
-{"totem": "Crayfish", "name": "Abida Genna", "role": "Hunter", "direction": "center"},
-{"totem": "Crow", "name": "Sweet Talker", "role": "Collector", "direction": "center"},
-{"totem": "Donkey", "name": "Khar", "role": "Poetry", "direction": "center"},
-{"totem": "Dove", "name": "Sakar Pekea", "role": "Swordsman", "direction": "center"},
-{"totem": "Draft Horse", "name": "Gurak Big-Heart", "role": "Soldier", "direction": "center"},
-{"totem": "Duck", "name": "Canos Ento", "role": "Chef", "direction": "center"},
-{"totem": "Earthworm", "name": "Vedt Dura", "role": "Sorcerer", "direction": "center"},
-{"totem": "Egret", "name": "V'neef Isolt", "role": "Inspector", "direction": "center"},
-{"totem": "Enfield", "name": "Sekar Jukka", "role": "Engraver", "direction": "center"},
-{"totem": "Ferret", "name": "Cathak Roman", "role": "Ringmaster", "direction": "center"},
-{"totem": "Flying Snake", "name": "D'ast Alena", "role": "Navigator", "direction": "center"},
-{"totem": "Fox", "name": "Wen Golonn", "role": "Inquisitor", "direction": "center"},
-{"totem": "Garden Slug", "name": "Mighty Glacier", "role": "Functionary", "direction": "center"},
-{"totem": "Genet", "name": "Sonor Lena", "role": "Thief", "direction": "center"},
-{"totem": "Gerbil", "name": "Kuto Pari", "role": "Landowner", "direction": "center"},
-{"totem": "Giant Land Snail", "name": "Bettu Bel'a", "role": "Architect", "direction": "center"},
-{"totem": "Goat", "name": "Clearest Bell", "role": "Musician", "direction": "center"},
-{"totem": "Goose", "name": "Uomo Qun", "role": "Silversmith", "direction": "center"},
-{"totem": "Grasshopper", "name": "Peng", "role": "Socialite", "direction": "center"},
-{"totem": "Guinea Pig", "name": "Apat Xian ", "role": "Functionary", "direction": "center"},
-{"totem": "Hamster", "name": "Ektor Koa", "role": "Lieutenant", "direction": "center"},
-{"totem": "Hedgehog", "name": "Ragara Ulen", "role": "Historian", "direction": "center"},
-{"totem": "Honey Bee", "name": "Purest Salve", "role": "Exorcist", "direction": "center"},
-{"totem": "Housecat", "name": "Gelok Long-limb", "role": "Athlete", "direction": "center"},
-{"totem": "Hummingbird", "name": "Iselsi Deran", "role": "Poet", "direction": "center"},
-{"totem": "Hunting Dog", "name": "Fotor Vekli", "role": "Sycophant", "direction": "center"},
-{"totem": "Katydid", "name": "Indir Son", "role": "Surgeon", "direction": "center"},
-{"totem": "Ladybug", "name": "Tepet Qualia", "role": "Traveler", "direction": "center"},
-{"totem": "Lap Dog", "name": "Ren Ito", "role": "Immaculate Priest", "direction": "center"},
-{"totem": "Llama", "name": "Woonsen Veng", "role": "Merchant", "direction": "center"},
-{"totem": "Locust", "name": "Kadar Tektor", "role": "Nobleman", "direction": "center"},
-{"totem": "Luna Moth", "name": "Night's Pearl", "role": "Hypnotist", "direction": "center"},
-{"totem": "Margay", "name": "Polt Bisha", "role": "Captain", "direction": "center"},
-{"totem": "Mole", "name": "Zuzu Amon", "role": "Vigilante", "direction": "center"},
-{"totem": "Mouse", "name": "Roshan Pteria", "role": "Sailor", "direction": "center"},
-{"totem": "Nightingale", "name": "Seles Meng", "role": "Philosopher", "direction": "center"},
-{"totem": "Nine-Headed Crane", "name": "Heng Oda", "role": "Actor", "direction": "center"},
-{"totem": "Orb Spider", "name": "Grandmother", "role": "Spymaster", "direction": "center"},
-{"totem": "Osprey", "name": "Shin Wen", "role": "Scout", "direction": "center"},
-{"totem": "Pheasant", "name": "Soma Buret", "role": "Tailor", "direction": "center"},
-{"totem": "Pig", "name": "Garoch Osar", "role": "Shipwright", "direction": "center"},
-{"totem": "Pixiu", "name": "Yidan Berit", "role": "Guardian", "direction": "center"},
-{"totem": "Prawn", "name": "Peleps Olivna", "role": "Seaweed Farmer", "direction": "center"},
-{"totem": "Praying Mantis", "name": "Phong Irnie", "role": "Cook", "direction": "center"},
-{"totem": "Rabbit", "name": "Qin Glasii", "role": "Demon-hunter", "direction": "center"},
-{"totem": "Rat", "name": "Mangakmaga", "role": "Scholar", "direction": "center"},
-{"totem": "Red-Tailed Hawk", "name": "Odenu Sen", "role": "Archer", "direction": "center"},
-{"totem": "Ribbon Snake", "name": "Xu Aamar", "role": "Gardening", "direction": "center"},
-{"totem": "Salamander", "name": "Len Dolot", "role": "Fisher", "direction": "center"},
-{"totem": "Sandpiper", "name": "Third Shift Xie", "role": "Smuggler", "direction": "center"},
-{"totem": "Seagull", "name": "Vydar Eneda", "role": "Watchman", "direction": "center"},
-{"totem": "Serval", "name": "Letar Van", "role": "Blacksmith", "direction": "center"},
-{"totem": "Sheep", "name": "Redat Kont", "role": "Herald", "direction": "center"},
-{"totem": "Shrew", "name": "Padel Yutor", "role": "Brawler", "direction": "center"},
-{"totem": "Silkworm", "name": "Sesus Fennik", "role": "Librarian", "direction": "center"},
-{"totem": "Snapping Turtle", "name": "Hates Everyone", "role": "Hermit", "direction": "center"},
-{"totem": "Squirrel", "name": "Gilahari", "role": "Spy Master", "direction": "center"},
-{"totem": "Star-Nosed Mole", "name": "Finds Jade", "role": "Miner", "direction": "center"},
-{"totem": "Stick Bug", "name": "Nellens Coran", "role": "Assassin", "direction": "center"},
-{"totem": "Stinkbug", "name": "Volok Etra", "role": "Explosives", "direction": "center"},
-{"totem": "Swan", "name": "Sigrid", "role": "Double Agent", "direction": "center"},
-{"totem": "Toad", "name": "Mnemon Odal", "role": "Potionmaker", "direction": "center"},
-{"totem": "Turkey", "name": "Chenna Dulet", "role": "Bartender", "direction": "center"},
-{"totem": "Water Strider", "name": "Jorun Kalec", "role": "Puppetmaster", "direction": "center"},
-{"totem": "Xiezhi", "name": "Talgraa Pi ", "role": "Immaculate Monk", "direction": "center"},
-{"totem": "Yak", "name": "Shal Maga", "role": "Bodyguard", "direction": "center"},
-{"totem": "Yeddim", "name": "Sky Rains Silver", "role": "Healer", "direction": "center"}
-]
-
-function formatRow(row){
-    return "<tr class='deleteable'><td>" + row.name + "</td><td>" + row.totem + "</td><td>" + row.role + "</td></tr>"
-}
-
-function getRows(number, direction){
-    var lunarsInDirection = [];
-    var myLunars = [];
-    var newLunarHTML = "";
-    var thisLunar = 0;
-    
-    for(var i=0; i < all_lunars.length; i++){
+      for (var i = 0; i < all_lunars.length; i++) {
         var lunar = all_lunars[i];
-        if(direction == 'creation'){
-            lunarsInDirection.push(lunar); 
-        }else{
-            if(direction == 'east' && lunar.direction == 'east'){ lunarsInDirection.push(lunar); }
-            if(direction == 'west' && lunar.direction == 'west'){ lunarsInDirection.push(lunar); }
-            if(direction == 'north' && lunar.direction == 'north'){ lunarsInDirection.push(lunar); }
-            if(direction == 'south' && lunar.direction == 'south'){ lunarsInDirection.push(lunar); }
-            if(direction == 'center' && lunar.direction == 'center'){ lunarsInDirection.push(lunar); }
+        if (direction == "creation") {
+          lunarsInDirection.push(lunar);
+        } else {
+          if (direction == "east" && lunar.direction == "east") {
+            lunarsInDirection.push(lunar);
+          }
+          if (direction == "west" && lunar.direction == "west") {
+            lunarsInDirection.push(lunar);
+          }
+          if (direction == "north" && lunar.direction == "north") {
+            lunarsInDirection.push(lunar);
+          }
+          if (direction == "south" && lunar.direction == "south") {
+            lunarsInDirection.push(lunar);
+          }
+          if (direction == "center" && lunar.direction == "center") {
+            lunarsInDirection.push(lunar);
+          }
         }
-    }
-    
-    if(direction == 'creation' && number == 400){
+      }
+
+      if (direction == "creation" && number == 400) {
         myLunars = lunarsInDirection;
-    }else{
-        for(var i=0; i<number; i++){
-            thisLunar = Math.floor((Math.random() * lunarsInDirection.length) );
-            myLunars.push(lunarsInDirection[thisLunar]);
-            lunarsInDirection.splice(thisLunar, 1);
+      } else {
+        for (var i = 0; i < number; i++) {
+          thisLunar = Math.floor(Math.random() * lunarsInDirection.length);
+          myLunars.push(lunarsInDirection[thisLunar]);
+          lunarsInDirection.splice(thisLunar, 1);
         }
-    }
-    
-    for(var i=0; i<myLunars.length; i++){
-        newLunarHTML += formatRow(myLunars[i]);
-    }
-    
-    return newLunarHTML;
-}
+      }
 
-function updateLunars(){
-    
-    var numberText = document.getElementById("number").value;
-    var direction = document.getElementById("direction").value;
-    var newLunarHTML = "";
-    var rows_to_delete = 0;
+      for (var i = 0; i < myLunars.length; i++) {
+        newLunarHTML += formatRow(myLunars[i], i);
+      }
 
-    if(numberText == "one"){ var number = 1; }
-    if(numberText == "all"){ var number = 400; }
-    if(numberText == "circle"){ var number = 5; }
-    if(numberText == "moot"){ var number = 30; }
-    
-    if(direction != "creation"){ number = Math.min(number, 80); }
-    
-    // Remove all existing lunars before adding new ones
-    var deleteable = document.getElementsByClassName("deleteable");
-    rows_to_delete = deleteable.length
-    console.log('deletion count: ' + deleteable.length);
-    
-    for(var i=0; i<rows_to_delete; i++){
+      return newLunarHTML;
+    }
+
+    function updateLunars() {
+      var numberText = document.getElementById("number").value;
+      var direction = document.getElementById("direction").value;
+      var newLunarHTML = "";
+      var rows_to_delete = 0;
+
+      if (numberText == "one") {
+        var number = 1;
+      }
+      if (numberText == "all") {
+        var number = 400;
+      }
+      if (numberText == "circle") {
+        var number = 5;
+      }
+      if (numberText == "moot") {
+        var number = 30;
+      }
+
+      if (direction != "creation") {
+        number = Math.min(number, 80);
+      }
+
+      // Remove all existing lunars before adding new ones
+      var deleteable = document.getElementsByClassName("deleteable");
+      rows_to_delete = deleteable.length;
+      console.log("deletion count: " + deleteable.length);
+
+      for (var i = 0; i < rows_to_delete; i++) {
         deleteable[0].parentNode.removeChild(deleteable[0]);
+      }
+
+      // Add all the new ones
+      newLunarHTML = getRows(number, direction);
+      document
+        .getElementById("obligatory")
+        .insertAdjacentHTML("beforeend", newLunarHTML);
     }
-    
-    // Add all the new ones
-    newLunarHTML = getRows(number, direction);
-    document.getElementById("obligatory").insertAdjacentHTML('beforeend', newLunarHTML);
-}
-
-</script>
+  </script>
 </head>
+
 <body>
+  <p class="titletopper">Exalted 3rd Edition</p>
+  <h1>400 Lunars</h1>
 
-<p class="titletopper">Exalted 3rd Edition</p>
-<h1>400 Lunars</h1>
+  <p>Set the dropdown menus to whatever you need.</p>
 
-<p>Set the dropdown menus to whatever you need.</p>
+  <div id="selectbox">
+    <select id="number" onchange="updateLunars()">
+      <option value="one">One Lunar from...</option>
+      <option value="circle">A circle of five Lunars from...</option>
+      <option value="moot">A moot of 30 Lunars from...</option>
+      <option value="all">Every Lunar from...</option>
+    </select>
 
-<div id="selectbox">
-<select id="number" onchange="updateLunars()">
-    <option value="one">One Lunar from...</option>
-    <option value="all">Every Lunar from...</option>
-    <option value="circle">A circle of five Lunars from...</option>
-    <option value="moot">A moot of 30 Lunars from...</option>
-</select>
+    <select id="direction" onchange="updateLunars()">
+      <option value="creation">All Creation</option>
+      <option value="north">The North</option>
+      <option value="south">The South</option>
+      <option value="east">The East</option>
+      <option value="west">The West</option>
+      <option value="center">The Center</option>
+    </select>
 
-<select id="direction" onchange="updateLunars()">
-    <option value="creation">Creation</option>
-    <option value="north">The North</option>
-    <option value="south">The South</option>
-    <option value="east">The East</option>
-    <option value="west">The West</option>
-    <option value="center">The Center</option>
-</select>
+    <button id="go" onclick="updateLunars()">Go</button>
+  </div>
 
-<button onclick="updateLunars()">Go</button>
-</div>
+  <p id="testing">&nbsp;</p>
 
-<p id="testing">&nbsp;</p>
+  <div id="results">
+    <table id="lunartable">
+      <tbody id="obligatory">
+        <tr id="headers">
+          <th id="nameheader">Name</th>
+          <th id="totemheader">Totem</th>
+          <th id="roleheader">Role</th>
+        </tr>
+        <tr class="deleteable">
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<div id="results">
+  <hr style="margin-top: 3em" />
 
-<table id="lunartable">
-  <tbody id="obligatory">
-    <tr id="headers">
-        <th id="nameheader">Name</th>
-        <th id="totemheader">Totem</th>
-        <th id="roleheader">Role</th>
-    </tr>
-    <tr class="deleteable">
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-
+  <footer id="colinlinks">
+    <p class="titletopper">Colin's Ex3 Interactives:</p>
+    <p>
+      <a href="https://colin-fredericks.github.io/ex3-dice-roller/">Dice Roller</a>
+    </p>
+    <p>
+      <a href="https://colin-fredericks.github.io/ex3-battle-groups/">Battle Group Generator</a>
+    </p>
+    <p>
+      <a href="https://colin-fredericks.github.io/ex3-dice-tricks/">Dice Trick Comparison</a>
+    </p>
+    <p>
+      <a href="https://colin-fredericks.github.io/ex3-400-lunars/">400 Lunars</a>
+    </p>
+    <p>
+      <a href="https://strangercreations.wordpress.com">Stranger Creations - NPCs and settings</a>
+    </p>
+  </footer>
 </body>
+
 </html>
