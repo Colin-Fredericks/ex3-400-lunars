@@ -20,26 +20,46 @@ table {
   border-collapse: collapse;
 }
 
-#selectbox {
-  height: 2.5em;
+/* Use media query to split at 512px wide */
+@media screen and (max-width: 512px) {
+  /* Styles for smaller screens */
+  #selectbox {
+    height: auto;
+    padding: 0.5em 1.5em .5em .5em;
+  }
+  #selectbox select {
+    display: block;
+    margin: 0.5em;
+    width: 100%;
+  }
+
+  #selectbox button {
+    display: block;
+    margin: 0.5em;
+    padding: 0.5em;
+    width: 100%;
+  }
+}
+
+#selectbox * {
+    font-size: large;
+}
+
+#selectbox select,
+#selectbox button {
+  padding: 0.5em;
 }
 
 #number {
   width: 40%;
-  height: 100%;
-  font-size: large;
 }
 
 #direction {
   width: 30%;
-  height: 100%;
-  font-size: large;
 }
 
 #go {
   width: 5em;
-  height: 100%;
-  font-size: large;
 }
 
 th {
